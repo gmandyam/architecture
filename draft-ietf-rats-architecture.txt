@@ -678,12 +678,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    Environment combines the Attestation Results into the final Evidence
    of the whole Composite Attester which is sent off to the remote
    Verifier, which might treat the claims obtained from the local
-   Attestation Results as if they were Evidence.  In this situation, the
-   local Verifier may need to be trusted by the Endorser and Verifier
-   Owner before getting the Endorsements and Appraisal Policies.  One
-   explicit way to establish such trust may be the Lead Attester first
-   generates Evidence about its trustworthiness and sends this Evidence
-   to the remote Verifier for evaluating.
+   Attestation Results as if they were Evidence.
 
 5.  Topological Models
 
@@ -714,6 +709,11 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    that protocol constrain the serialization format of the Attestation
    Result.  The format of the Evidence on the other hand is only
    constrained by the Attester-Verifier attestation protocol.
+
+
+
+
+
 
 
 
@@ -903,11 +903,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    trustworthiness of the Verifier before accepting its Attestation
    Results.
 
-   Similar to the Relying Party, the Endorser and Verifier Owner also
-   need to trust the Verifier before giving the Endorsement and
-   Appraisal Policy to it.  Such trust can also be established directly
-   or indirectly, implicitly or explicitly.
-
    The Verifier trusts (or more specifically, the Verifier's security
    policy is written in a way that configures the Verifier to trust) a
    manufacturer, or the manufacturer's hardware, so as to be able to
@@ -944,6 +939,11 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    hardware, firmware, or software on the device), and evaluating it in
    isolation would require Appraisal Policy to be based on device-
    specific details (e.g., a device public key).
+
+
+
+
+
 
 
 
