@@ -87,8 +87,8 @@ Table of Contents
      3.6.  Hardware Watchdog . . . . . . . . . . . . . . . . . . . .   6
    4.  Architectural Overview  . . . . . . . . . . . . . . . . . . .   6
      4.1.  Two Types of Environments of an Attester  . . . . . . . .   8
-     4.2.  Composite Attester  . . . . . . . . . . . . . . . . . . .   8
-     4.3.  Layered Attestation Procedures  . . . . . . . . . . . . .  10
+     4.2.  Layered Attestation Procedures  . . . . . . . . . . . . .   8
+     4.3.  Composite Attester  . . . . . . . . . . . . . . . . . . .  10
    5.  Topological Models  . . . . . . . . . . . . . . . . . . . . .  12
      5.1.  Passport Model  . . . . . . . . . . . . . . . . . . . . .  12
      5.2.  Background-Check Model  . . . . . . . . . . . . . . . . .  13
@@ -413,121 +413,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    include Trusted Execution Environments (TEE), embedded Secure
    Elements (eSE), or Hardware Security Modules (HSM).
 
-4.2.  Composite Attester
-
-   A Composite Attester is an entity composed of multiple sub-entities
-   such that its trustworthiness has to be determined by evaluating all
-   these sub-entities.  Each sub-entity has at least one Attesting
-   Environment collecting the claims from at least one Target
-   Environment, then this sub-entity generates Evidence about its
-   trustworthiness.  Therefore each sub-entity can be called an
-   Attester.  Among these Attesters, there may be only some, which can
-   be called Lead Attesters, that have the ability to communicate with
-   the Verifier.  Other Attesters don't have this ability, but they are
-   connected to the Lead Attesters via internal links or network
-   connections, and they are evaluated via the Lead Attester's help.
-
-   For example, a carrier-grade router is a composite device consisting
-   of a chassis and multiple slots.  The trustworthiness of the router
-   depends on all its slots' trustworthiness.  Each slot has an
-   Attesting Environment such as a TEE collecting the claims of its boot
-   process, after which it generates Evidence from the claims.  Among
-   these slots, only a main slot can communicate with the Verifier while
-   other slots cannot.  But other slots can communicate with the main
-   slot by the links between them inside the router.  So the main slot
-   collects the Evidence of other slots, produces the final Evidence of
-   the whole router and conveys the final Evidence to the Verifier.
-   Therefore the router is a Composite Attester, each slot is an
-   Attester, and the main slot is the Lead Attester.
-
-   Another example is a multi-chassis router composed of multiple single
-   carrier-grade routers.  The multi-chassis router provides higher
-
-
-
-Birkholz, et al.        Expires 4 September 2020                [Page 8]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
-   throughput by interconnecting multiple routers and can be logically
-   treated as one router for simpler management.  Among these routers,
-   there is only one main router that connects to the Verifier.  Other
-   routers are only connected to the main router by the network cables,
-   and therefore they are managed and verified via this main router.
-   So, in this case, the multi-chassis router is the Composite Attester,
-   each router is an Attester and the main router is the Lead Attester.
-
-   Figure 2 depicts the conceptual data flow for a Composite Device.
-
-                      .-----------------------------.
-                      |           Verifier          |
-                      '-----------------------------'
-                                      ^
-                                      |
-                                      | Composite
-                                      | Evidence
-                                      |
-   .----------------------------------|-------------------------------.
-   | .--------------------------------|-----.      .------------.     |
-   | |                      .------------.  |      |            |     |
-   | |                      |  Attesting |<--------| Attester B |-.   |
-   | |                      |Environment |  |      '------------. |   |
-   | |  .----------------.  |            |<----------| Attester C |-. |
-   | |  |     Target     |  |            |  |        '------------' | |
-   | |  | Environment(s) |  |            |<------------| ...        | |
-   | |  |                |  '------------'  | Evidence '------------' |
-   | |  |                |            ^     |    of                   |
-   | |  |                |------------/     | Attesters               |
-   | |  '----------------'  Collecting      | (via Internal Links or  |
-   | |                      Claims          | Network Connections)    |
-   | |                                      |                         |
-   | | Lead Attester A                      |                         |
-   | '--------------------------------------'                         |
-   |                                                                  |
-   |                       Composite Device                           |
-   '------------------------------------------------------------------'
-
-           Figure 2: Conceptual Data Flow for a Composite Device
-
-   In the Composite Device, each Attester generates its own Evidence by
-   its Attesting Environment(s) collecting the claims from its Target
-   Environment(s).  The Lead Attester collects the Evidence of all other
-   Attesters and then generates the Evidence of the whole Composite
-   Attester.
-
-   The Lead Attester's Attesting Environment may or may not include its
-   own Verifier.  One situation is that the Attesting Environment has no
-
-
-
-Birkholz, et al.        Expires 4 September 2020                [Page 9]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
-   local Verifier.  In this situation, the Lead Attesting Environment
-   simply combines the various Evidences into the final Evidence that is
-   sent off to the remote Verifier, which evaluates the trustworthiness
-   of the Composite Device, including the Lead Attester's and other
-   Attesters', trustworthiness.
-
-   The other situation is that the Lead Attesting Environment has an
-   local Verifier.  After collecting the Evidence of other Attesters,
-   this Attesting Environment verifies them using Endorsements and
-   Appraisal Policies (obtained the same way as any other Verifier), for
-   evaluating these Attesters' trustworthiness.  Then the Lead Attesting
-   Environment combines the Attestation Results into the final Evidence
-   of the whole Composite Attester which is sent off to the remote
-   Verifier, which might treat the claims obtained from the local
-   Attestation Results as if they were Evidence.  In this situation, the
-   local Verifier may need to be trusted by the Endorser and Verifier
-   Owner before getting the Endorsements and Appraisal Policies.  One
-   explicit way to establish such trust may be the Lead Attester first
-   generates Evidence about its trustworthiness and sends this Evidence
-   to the remote Verifier for evaluating.
-
-4.3.  Layered Attestation Procedures
+4.2.  Layered Attestation Procedures
 
    By definition, the Attester role takes on the duty to create
    Evidence.  The fact that an Attester role is composed of several
@@ -554,16 +440,16 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
    The very first Attesting Environment in this example can be a
    hardware component that is a Static Code Root of Trust.  As in any
+   other scenario, this hardware component is the first Attesting
+   Environment.  It collects a rather concise number of Claims about the
 
 
 
-Birkholz, et al.        Expires 4 September 2020               [Page 10]
+Birkholz, et al.        Expires 4 September 2020                [Page 8]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
-   other scenario, this hardware component is the first Attesting
-   Environment.  It collects a rather concise number of Claims about the
    Target Environment.  The Target Environment in this example is the
    (U)EFI / BIOS / Firmware.  After the boot sequence started, the
    Target Environment conducts the most important and defining feature
@@ -610,6 +496,120 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    The essence of this example is a cascade of staged boot environments.
    Each environment (after the initial one that is a root-of-trust) has
    the duty of measuring its next environment before it is started.
+   Therefore, creating a layered boot sequence and correspondingly
+   enabling Layered Attestation.
+
+
+
+Birkholz, et al.        Expires 4 September 2020                [Page 9]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
+4.3.  Composite Attester
+
+   A Composite Attester is an entity composed of multiple sub-entities
+   such that its trustworthiness has to be determined by evaluating all
+   these sub-entities.  Each sub-entity has at least one Attesting
+   Environment collecting the claims from at least one Target
+   Environment, then this sub-entity generates Evidence about its
+   trustworthiness.  Therefore each sub-entity can be called an
+   Attester.  Among these Attesters, there may be only some, which can
+   be called Lead Attesters, that have the ability to communicate with
+   the Verifier.  Other Attesters don't have this ability, but they are
+   connected to the Lead Attesters via internal links or network
+   connections, and they are evaluated via the Lead Attester's help.
+
+   For example, a carrier-grade router is a composite device consisting
+   of a chassis and multiple slots.  The trustworthiness of the router
+   depends on all its slots' trustworthiness.  Each slot has an
+   Attesting Environment such as a TEE collecting the claims of its boot
+   process, after which it generates Evidence from the claims.  Among
+   these slots, only a main slot can communicate with the Verifier while
+   other slots cannot.  But other slots can communicate with the main
+   slot by the links between them inside the router.  So the main slot
+   collects the Evidence of other slots, produces the final Evidence of
+   the whole router and conveys the final Evidence to the Verifier.
+   Therefore the router is a Composite Attester, each slot is an
+   Attester, and the main slot is the Lead Attester.
+
+   Another example is a multi-chassis router composed of multiple single
+   carrier-grade routers.  The multi-chassis router provides higher
+   throughput by interconnecting multiple routers and can be logically
+   treated as one router for simpler management.  Among these routers,
+   there is only one main router that connects to the Verifier.  Other
+   routers are only connected to the main router by the network cables,
+   and therefore they are managed and verified via this main router.
+   So, in this case, the multi-chassis router is the Composite Attester,
+   each router is an Attester and the main router is the Lead Attester.
+
+   Figure 2 depicts the conceptual data flow for a Composite Device.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Birkholz, et al.        Expires 4 September 2020               [Page 10]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
+                      .-----------------------------.
+                      |           Verifier          |
+                      '-----------------------------'
+                                      ^
+                                      |
+                                      | Composite
+                                      | Evidence
+                                      |
+   .----------------------------------|-------------------------------.
+   | .--------------------------------|-----.      .------------.     |
+   | |                      .------------.  |      |            |     |
+   | |                      |  Attesting |<--------| Attester B |-.   |
+   | |                      |Environment |  |      '------------. |   |
+   | |  .----------------.  |            |<----------| Attester C |-. |
+   | |  |     Target     |  |            |  |        '------------' | |
+   | |  | Environment(s) |  |            |<------------| ...        | |
+   | |  |                |  '------------'  | Evidence '------------' |
+   | |  |                |            ^     |    of                   |
+   | |  |                |------------/     | Attesters               |
+   | |  '----------------'  Collecting      | (via Internal Links or  |
+   | |                      Claims          | Network Connections)    |
+   | |                                      |                         |
+   | | Lead Attester A                      |                         |
+   | '--------------------------------------'                         |
+   |                                                                  |
+   |                       Composite Device                           |
+   '------------------------------------------------------------------'
+
+           Figure 2: Conceptual Data Flow for a Composite Device
+
+   In the Composite Device, each Attester generates its own Evidence by
+   its Attesting Environment(s) collecting the claims from its Target
+   Environment(s).  The Lead Attester collects the Evidence of all other
+   Attesters and then generates the Evidence of the whole Composite
+   Attester.
+
+   The Lead Attester's Attesting Environment may or may not include its
+   own Verifier.  One situation is that the Attesting Environment has no
+   local Verifier.  In this situation, the Lead Attesting Environment
+   simply combines the various Evidences into the final Evidence that is
+   sent off to the remote Verifier, which evaluates the trustworthiness
+   of the Composite Device, including the Lead Attester's and other
+   Attesters', trustworthiness.
+
+   The other situation is that the Lead Attesting Environment has an
+   local Verifier.  After collecting the Evidence of other Attesters,
+   this Attesting Environment verifies them using Endorsements and
+   Appraisal Policies (obtained the same way as any other Verifier), for
 
 
 
@@ -618,14 +618,16 @@ Birkholz, et al.        Expires 4 September 2020               [Page 11]
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
-   Therefore, creating a layered boot sequence and correspondingly
-   enabling Layered Attestation.
-
-   Please note: nested components can compose their on Composite
-   Attesters.  In consequence, the concept of Layered Attestation is
-   realized in each Attester role.  If there is a Composite Device
-   enabling Composite Attesters, each Attester can enable its separate
-   instance of Layered Attestation.
+   evaluating these Attesters' trustworthiness.  Then the Lead Attesting
+   Environment combines the Attestation Results into the final Evidence
+   of the whole Composite Attester which is sent off to the remote
+   Verifier, which might treat the claims obtained from the local
+   Attestation Results as if they were Evidence.  In this situation, the
+   local Verifier may need to be trusted by the Endorser and Verifier
+   Owner before getting the Endorsements and Appraisal Policies.  One
+   explicit way to establish such trust may be the Lead Attester first
+   generates Evidence about its trustworthiness and sends this Evidence
+   to the remote Verifier for evaluating.
 
 5.  Topological Models
 
@@ -656,8 +658,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    that protocol constrain the serialization format of the Attestation
    Result.  The format of the Evidence on the other hand is only
    constrained by the Attester-Verifier attestation protocol.
-
-
 
 
 
