@@ -1,6 +1,216 @@
 [
 
   {
+    "url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/52",
+    "repository_url": "https://api.github.com/repos/ietf-rats-wg/architecture",
+    "labels_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/52/labels{/name}",
+    "comments_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/52/comments",
+    "events_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/52/events",
+    "html_url": "https://github.com/ietf-rats-wg/architecture/pull/52",
+    "id": 574523463,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzgyODMxMTU1",
+    "number": 52,
+    "title": "update the composite device picture to add the local verifier",
+    "user": {
+      "login": "William-PanWei",
+      "id": 44770431,
+      "node_id": "MDQ6VXNlcjQ0NzcwNDMx",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/44770431?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/William-PanWei",
+      "html_url": "https://github.com/William-PanWei",
+      "followers_url": "https://api.github.com/users/William-PanWei/followers",
+      "following_url": "https://api.github.com/users/William-PanWei/following{/other_user}",
+      "gists_url": "https://api.github.com/users/William-PanWei/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/William-PanWei/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/William-PanWei/subscriptions",
+      "organizations_url": "https://api.github.com/users/William-PanWei/orgs",
+      "repos_url": "https://api.github.com/users/William-PanWei/repos",
+      "events_url": "https://api.github.com/users/William-PanWei/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/William-PanWei/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2020-03-03T09:18:06Z",
+    "updated_at": "2020-03-03T13:06:17Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/ietf-rats-wg/architecture/pulls/52",
+      "html_url": "https://github.com/ietf-rats-wg/architecture/pull/52",
+      "diff_url": "https://github.com/ietf-rats-wg/architecture/pull/52.diff",
+      "patch_url": "https://github.com/ietf-rats-wg/architecture/pull/52.patch"
+    },
+    "body": "It's more reasonable to say the local Verifier is also a Target Environment.\r\n\r\nFor the case that Lead Attester has no local Verifier, the Evidence of other Attesters is processed directly by the Attesting Environment. \r\nFor the case that Lead Attester has a local Verifier, the Evidence of other Attesters is verified by the local Verifier (also is a Target Environment) and then claims are collected by the Attesting Environment. \r\n\r\nIn the picture now, the arrow of 'Evidence of Attesters' points to the box of Lead Attester. Actually, for the previous case, the arrow should end to the Attesting Environment, and for the latter case, the arrow should end to the Target Environment."
+  },
+  {
+    "url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/51",
+    "repository_url": "https://api.github.com/repos/ietf-rats-wg/architecture",
+    "labels_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/51/labels{/name}",
+    "comments_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/51/comments",
+    "events_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/51/events",
+    "html_url": "https://github.com/ietf-rats-wg/architecture/pull/51",
+    "id": 574386634,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzgyNzIwMjA0",
+    "number": 51,
+    "title": "update trust model for the verifier",
+    "user": {
+      "login": "William-PanWei",
+      "id": 44770431,
+      "node_id": "MDQ6VXNlcjQ0NzcwNDMx",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/44770431?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/William-PanWei",
+      "html_url": "https://github.com/William-PanWei",
+      "followers_url": "https://api.github.com/users/William-PanWei/followers",
+      "following_url": "https://api.github.com/users/William-PanWei/following{/other_user}",
+      "gists_url": "https://api.github.com/users/William-PanWei/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/William-PanWei/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/William-PanWei/subscriptions",
+      "organizations_url": "https://api.github.com/users/William-PanWei/orgs",
+      "repos_url": "https://api.github.com/users/William-PanWei/repos",
+      "events_url": "https://api.github.com/users/William-PanWei/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/William-PanWei/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2020-03-03T03:13:51Z",
+    "updated_at": "2020-03-03T03:13:51Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/ietf-rats-wg/architecture/pulls/51",
+      "html_url": "https://github.com/ietf-rats-wg/architecture/pull/51",
+      "diff_url": "https://github.com/ietf-rats-wg/architecture/pull/51.diff",
+      "patch_url": "https://github.com/ietf-rats-wg/architecture/pull/51.patch"
+    },
+    "body": "update the PR #47 "
+  },
+  {
+    "url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/50",
+    "repository_url": "https://api.github.com/repos/ietf-rats-wg/architecture",
+    "labels_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/50/labels{/name}",
+    "comments_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/50/comments",
+    "events_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/50/events",
+    "html_url": "https://github.com/ietf-rats-wg/architecture/issues/50",
+    "id": 574365582,
+    "node_id": "MDU6SXNzdWU1NzQzNjU1ODI=",
+    "number": 50,
+    "title": "Is there a need to have a 'basis' Topological Model?",
+    "user": {
+      "login": "William-PanWei",
+      "id": 44770431,
+      "node_id": "MDQ6VXNlcjQ0NzcwNDMx",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/44770431?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/William-PanWei",
+      "html_url": "https://github.com/William-PanWei",
+      "followers_url": "https://api.github.com/users/William-PanWei/followers",
+      "following_url": "https://api.github.com/users/William-PanWei/following{/other_user}",
+      "gists_url": "https://api.github.com/users/William-PanWei/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/William-PanWei/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/William-PanWei/subscriptions",
+      "organizations_url": "https://api.github.com/users/William-PanWei/orgs",
+      "repos_url": "https://api.github.com/users/William-PanWei/repos",
+      "events_url": "https://api.github.com/users/William-PanWei/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/William-PanWei/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 3,
+    "created_at": "2020-03-03T02:01:25Z",
+    "updated_at": "2020-03-03T14:21:52Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "~~~~\r\n+-------------+            +-------------+               +-------------+\r\n|             |----------->|             |-------------->|             |\r\n|   Attester  |  Evidence  |   Verifier  |  Attestation  |   Relying   |\r\n|             |            |             |     Result    |    Party    |\r\n+-------------+            +-------------+               +-------------+\r\n                           Compare Evidence              Compare Attestation\r\n                           against Appraisal             Result against\r\n                           Policy                        Appraisal Policy\r\n~~~~\r\nIn both the passport and background-check models, the Attester communicates directly with the Relying Party to access some resources. But in some cases, the Attester doesn't need to access resources from the Relying Party.\r\nAssume that the Attester is a network device (router, switch, etc.), and the Relying Party is the network management system (NMS) of the network operator. In such a case, the NMS monitors the health of the device by retrieving the Attestation Result of the device from a Verifier. If the device fails the attestation process, the NMS can take countermeasures like quarantining it. So the figure above depicts this situation."
+  },
+  {
+    "url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/49",
+    "repository_url": "https://api.github.com/repos/ietf-rats-wg/architecture",
+    "labels_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/49/labels{/name}",
+    "comments_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/49/comments",
+    "events_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/49/events",
+    "html_url": "https://github.com/ietf-rats-wg/architecture/pull/49",
+    "id": 574329525,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzgyNjc0Mjc3",
+    "number": 49,
+    "title": "Move section 6 before section 4.1",
+    "user": {
+      "login": "dthaler",
+      "id": 6547784,
+      "node_id": "MDQ6VXNlcjY1NDc3ODQ=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6547784?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/dthaler",
+      "html_url": "https://github.com/dthaler",
+      "followers_url": "https://api.github.com/users/dthaler/followers",
+      "following_url": "https://api.github.com/users/dthaler/following{/other_user}",
+      "gists_url": "https://api.github.com/users/dthaler/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/dthaler/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/dthaler/subscriptions",
+      "organizations_url": "https://api.github.com/users/dthaler/orgs",
+      "repos_url": "https://api.github.com/users/dthaler/repos",
+      "events_url": "https://api.github.com/users/dthaler/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/dthaler/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2020-03-03T00:02:13Z",
+    "updated_at": "2020-03-03T01:37:56Z",
+    "closed_at": "2020-03-03T01:37:56Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/ietf-rats-wg/architecture/pulls/49",
+      "html_url": "https://github.com/ietf-rats-wg/architecture/pull/49",
+      "diff_url": "https://github.com/ietf-rats-wg/architecture/pull/49.diff",
+      "patch_url": "https://github.com/ietf-rats-wg/architecture/pull/49.patch"
+    },
+    "body": "Addresses issue #34\r\n\r\nThere's no text changes in this PR, text is just moved without\r\nmodification.\r\n\r\nSigned-off-by: Dave Thaler <dthaler@microsoft.com>"
+  },
+  {
     "url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/48",
     "repository_url": "https://api.github.com/repos/ietf-rats-wg/architecture",
     "labels_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/48/labels{/name}",
@@ -97,7 +307,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2020-02-25T16:13:44Z",
-    "updated_at": "2020-03-02T18:58:12Z",
+    "updated_at": "2020-03-02T19:04:07Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -391,9 +601,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 4,
     "created_at": "2020-02-11T15:07:17Z",
-    "updated_at": "2020-02-11T15:07:17Z",
+    "updated_at": "2020-03-03T01:30:25Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "TEEP and others needs to know what kind of SLA RATS can provide.\r\n"
@@ -975,7 +1185,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2020-02-04T11:30:23Z",
-    "updated_at": "2020-02-11T15:29:19Z",
+    "updated_at": "2020-03-03T14:54:13Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -1389,7 +1599,10 @@
       "patch_url": "https://github.com/ietf-rats-wg/architecture/pull/23.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/22",
     "repository_url": "https://api.github.com/repos/ietf-rats-wg/architecture",
@@ -1591,9 +1804,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2020-01-21T16:09:27Z",
-    "updated_at": "2020-01-21T16:09:27Z",
+    "updated_at": "2020-03-03T00:24:35Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": ""
@@ -1683,10 +1896,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Taking into account the recent trends in terminology used in draft text & PR, I am proposing to add Entity and Sub-Entity to the terminology section. We do not need to over-specify here. Hence, only mentioning Composite Device and Components as an examplew for each of the terms in the definition text could be enough.\r\n\r\nAre there any objections to this proposal? If not, we could create a PR and address it in next week's meeting."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/18",
     "repository_url": "https://api.github.com/repos/ietf-rats-wg/architecture",
@@ -1728,9 +1938,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2020-01-16T17:50:53Z",
-    "updated_at": "2020-01-21T16:06:50Z",
+    "updated_at": "2020-03-03T00:29:57Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": ""
