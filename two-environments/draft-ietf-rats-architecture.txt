@@ -407,7 +407,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    Claims are collected from Target Environments.  That is, Attesting
    Environments collect the raw values and the information to be
    represented in claims, such as by doing some measurement of a Target
-   Environments code, memory, and/or registers.  Attesting Environments
+   Environment's code, memory, and/or registers.  Attesting Environments
    then format the claims appropriately, and typically use key material
    and cryptographic functions, such as signing or cipher algorithms, to
    create Evidence.  Examples of environments that can be used as
