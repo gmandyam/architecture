@@ -5,12 +5,12 @@
 RATS Working Group                                           H. Birkholz
 Internet-Draft                                            Fraunhofer SIT
 Intended status: Informational                                 D. Thaler
-Expires: 3 September 2020                                      Microsoft
+Expires: 4 September 2020                                      Microsoft
                                                            M. Richardson
                                                 Sandelman Software Works
                                                                 N. Smith
                                                                    Intel
-                                                            2 March 2020
+                                                            3 March 2020
 
 
                Remote Attestation Procedures Architecture
@@ -53,12 +53,12 @@ Status of This Memo
 
 
 
-Birkholz, et al.        Expires 3 September 2020                [Page 1]
+Birkholz, et al.        Expires 4 September 2020                [Page 1]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
-   This Internet-Draft will expire on 3 September 2020.
+   This Internet-Draft will expire on 4 September 2020.
 
 Copyright Notice
 
@@ -86,30 +86,30 @@ Table of Contents
      3.5.  Trusted Execution Environment (TEE) Provisioning  . . . .   6
      3.6.  Hardware Watchdog . . . . . . . . . . . . . . . . . . . .   6
    4.  Architectural Overview  . . . . . . . . . . . . . . . . . . .   6
-     4.1.  Composite Attester  . . . . . . . . . . . . . . . . . . .   8
+     4.1.  Two Types of Environments of an Attester  . . . . . . . .   8
+     4.2.  Composite Attester  . . . . . . . . . . . . . . . . . . .   8
    5.  Topological Models  . . . . . . . . . . . . . . . . . . . . .  10
      5.1.  Passport Model  . . . . . . . . . . . . . . . . . . . . .  10
      5.2.  Background-Check Model  . . . . . . . . . . . . . . . . .  11
      5.3.  Combinations  . . . . . . . . . . . . . . . . . . . . . .  12
-   6.  Two Types of Environments of an Attester  . . . . . . . . . .  13
-   7.  Trust Model . . . . . . . . . . . . . . . . . . . . . . . . .  14
-   8.  Conceptual Messages . . . . . . . . . . . . . . . . . . . . .  15
-     8.1.  Evidence  . . . . . . . . . . . . . . . . . . . . . . . .  15
-     8.2.  Endorsements  . . . . . . . . . . . . . . . . . . . . . .  15
-     8.3.  Attestation Results . . . . . . . . . . . . . . . . . . .  16
-   9.  Claims Encoding Formats . . . . . . . . . . . . . . . . . . .  16
-   10. Freshness . . . . . . . . . . . . . . . . . . . . . . . . . .  18
-   11. Privacy Considerations  . . . . . . . . . . . . . . . . . . .  19
-   12. Security Considerations . . . . . . . . . . . . . . . . . . .  19
-   13. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  20
-   14. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  20
-   15. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  20
-   16. Informative References  . . . . . . . . . . . . . . . . . . .  20
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  21
+   6.  Trust Model . . . . . . . . . . . . . . . . . . . . . . . . .  13
+   7.  Conceptual Messages . . . . . . . . . . . . . . . . . . . . .  14
+     7.1.  Evidence  . . . . . . . . . . . . . . . . . . . . . . . .  14
+     7.2.  Endorsements  . . . . . . . . . . . . . . . . . . . . . .  15
+     7.3.  Attestation Results . . . . . . . . . . . . . . . . . . .  15
+   8.  Claims Encoding Formats . . . . . . . . . . . . . . . . . . .  16
+   9.  Freshness . . . . . . . . . . . . . . . . . . . . . . . . . .  18
+   10. Privacy Considerations  . . . . . . . . . . . . . . . . . . .  18
+   11. Security Considerations . . . . . . . . . . . . . . . . . . .  19
+   12. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  19
+   13. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  19
+   14. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  19
+   15. Informative References  . . . . . . . . . . . . . . . . . . .  19
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  20
 
 
 
-Birkholz, et al.        Expires 3 September 2020                [Page 2]
+Birkholz, et al.        Expires 4 September 2020                [Page 2]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -165,7 +165,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 3 September 2020                [Page 3]
+Birkholz, et al.        Expires 4 September 2020                [Page 3]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -221,7 +221,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 3 September 2020                [Page 4]
+Birkholz, et al.        Expires 4 September 2020                [Page 4]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -277,7 +277,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 3 September 2020                [Page 5]
+Birkholz, et al.        Expires 4 September 2020                [Page 5]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -333,7 +333,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 3 September 2020                [Page 6]
+Birkholz, et al.        Expires 4 September 2020                [Page 6]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -389,12 +389,31 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 3 September 2020                [Page 7]
+Birkholz, et al.        Expires 4 September 2020                [Page 7]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
-4.1.  Composite Attester
+4.1.  Two Types of Environments of an Attester
+
+   An Attester consists of at least one Attesting Environment and at
+   least one Target Environment.  In some implementations, the Attesting
+   and Target Environments might be combined.  Other implementations
+   might have multiple Attesting and Target Environments.  One example
+   is a set of components in a boot sequence (e.g., ROM, firmware, OS,
+   and application) where a Target Environment is the Attesting
+   Environment for the next environment in the boot sequence.
+
+   Claims are collected from Target Environments.  That is, Attesting
+   Environments collect the raw values and the information to be
+   represented in claims.  Attesting Environments then format them
+   appropriately, and typically use key material and cryptographic
+   functions, such as signing or cipher algorithms, to create Evidence.
+   Examples of environments that can be used as Attesting Environments
+   include Trusted Execution Environments (TEE), embedded Secure
+   Elements (eSE), or Hardware Security Modules (HSM).
+
+4.2.  Composite Attester
 
    A Composite Attester is an entity composed of multiple sub-entities
    such that its trustworthiness has to be determined by evaluating all
@@ -423,6 +442,14 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
    Another example is a multi-chassis router composed of multiple single
    carrier-grade routers.  The multi-chassis router provides higher
+
+
+
+Birkholz, et al.        Expires 4 September 2020                [Page 8]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
    throughput by interconnecting multiple routers and can be logically
    treated as one router for simpler management.  Among these routers,
    there is only one main router that connects to the Verifier.  Other
@@ -432,23 +459,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    each router is an Attester and the main router is the Lead Attester.
 
    Figure 2 depicts the conceptual data flow for a Composite Device.
-
-
-
-
-
-
-
-
-
-
-
-
-
-Birkholz, et al.        Expires 3 September 2020                [Page 8]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
 
                       .-----------------------------.
                       |           Verifier          |
@@ -488,6 +498,14 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
    The Lead Attester's Attesting Environment may or may not include its
    own Verifier.  One situation is that the Attesting Environment has no
+
+
+
+Birkholz, et al.        Expires 4 September 2020                [Page 9]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
    local Verifier.  In this situation, the Lead Attesting Environment
    simply combines the various Evidences into the final Evidence that is
    sent off to the remote Verifier, which evaluates the trustworthiness
@@ -498,14 +516,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    local Verifier.  After collecting the Evidence of other Attesters,
    this Attesting Environment verifies them using Endorsements and
    Appraisal Policies (obtained the same way as any other Verifier), for
-
-
-
-Birkholz, et al.        Expires 3 September 2020                [Page 9]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
    evaluating these Attesters' trustworthiness.  Then the Lead Attesting
    Environment combines the Attestation Results into the final Evidence
    of the whole Composite Attester which is sent off to the remote
@@ -544,23 +554,16 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    Since the resource access protocol between the Attester and Relying
    Party includes an Attestation Result, in this model the details of
    that protocol constrain the serialization format of the Attestation
-   Result.  The format of the Evidence on the other hand is only
-   constrained by the Attester-Verifier attestation protocol.
 
 
 
-
-
-
-
-
-
-
-
-Birkholz, et al.        Expires 3 September 2020               [Page 10]
+Birkholz, et al.        Expires 4 September 2020               [Page 10]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
+
+   Result.  The format of the Evidence on the other hand is only
+   constrained by the Attester-Verifier attestation protocol.
 
          +-------------+
          |             | Compare Evidence
@@ -608,16 +611,15 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    be _encapsulated in_ the format required by the resource access
    protocol between the Attester and Relying Party.
 
-   However, like in the Passport model, an Attestation Result is still
-   consumed by the Relying Party and so the serialization format of the
 
 
-
-Birkholz, et al.        Expires 3 September 2020               [Page 11]
+Birkholz, et al.        Expires 4 September 2020               [Page 11]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
+   However, like in the Passport model, an Attestation Result is still
+   consumed by the Relying Party and so the serialization format of the
    Attestation Result is still important.  If the Relying Party is a
    constrained node whose purpose is to serve a given type resource
    using a standard resource access protocol, it already needs the
@@ -664,16 +666,15 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    It is also worth pointing out that the choice of model is generally
    up to the Relying Party, and the same device may need to attest to
    different Relying Parties for different use cases (e.g., a network
-   infrastructure device to gain access to the network, and then a
 
 
 
-
-Birkholz, et al.        Expires 3 September 2020               [Page 12]
+Birkholz, et al.        Expires 4 September 2020               [Page 12]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
+   infrastructure device to gain access to the network, and then a
    server holding confidential data to get access to that data).  As
    such, both models may simultaneously be in use by the same device.
 
@@ -712,34 +713,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
                        Figure 5: Example Combination
 
-6.  Two Types of Environments of an Attester
-
-   An Attester consists of at least one Attesting Environment and at
-   least one Target Environment.  In some implementations, the Attesting
-   and Target Environments might be combined.  Other implementations
-   might have multiple Attesting and Target Environments.  One example
-   is a set of components in a boot sequence (e.g., ROM, firmware, OS,
-   and application) where a Target Environment is the Attesting
-   Environment for the next environment in the boot sequence.
-
-
-
-
-Birkholz, et al.        Expires 3 September 2020               [Page 13]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
-   Claims are collected from Target Environments.  That is, Attesting
-   Environments collect the raw values and the information to be
-   represented in claims.  Attesting Environments then format them
-   appropriately, and typically use key material and cryptographic
-   functions, such as signing or cipher algorithms, to create Evidence.
-   Examples of environments that can be used as Attesting Environments
-   include Trusted Execution Environments (TEE), embedded Secure
-   Elements (eSE), or Hardware Security Modules (HSM).
-
-7.  Trust Model
+6.  Trust Model
 
    The scope of this document is scenarios for which a Relying Party
    trusts a Verifier that can evaluate the trustworthiness of
@@ -748,6 +722,14 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    come by trusting an entity (e.g., a Certificate Authority) that is in
    the Verifier's certificate chain.  The Relying Party might implicitly
    trust a Verifier (such as in the Verifying Relying Party
+
+
+
+Birkholz, et al.        Expires 4 September 2020               [Page 13]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
    combination).  Or, for a stronger level of security, the Relying
    Party might require that the Verifier itself provide information
    about itself that the Relying Party can use to evaluate the
@@ -778,21 +760,13 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    as Personally Identifiable Information.  Thus, an Attester must trust
    entities to which it sends Evidence, to not reveal sensitive data to
    unauthorized parties.  The Verifier may share this information with
-
-
-
-Birkholz, et al.        Expires 3 September 2020               [Page 14]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
    other authorized parties, according rules that it controls.  In the
    background-check model, this Evidence may also be revealed to Relying
    Party(s).
 
-8.  Conceptual Messages
+7.  Conceptual Messages
 
-8.1.  Evidence
+7.1.  Evidence
 
    Today, Evidence tends to be highly device-specific, since the
    information in the Evidence often includes vendor-specific
@@ -804,7 +778,15 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    isolation would require Appraisal Policy to be based on device-
    specific details (e.g., a device public key).
 
-8.2.  Endorsements
+
+
+
+Birkholz, et al.        Expires 4 September 2020               [Page 14]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
+7.2.  Endorsements
 
    An Endorsement is a secure statement that some entity (e.g., a
    manufacturer) vouches for the integrity of the device's signing
@@ -834,15 +816,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    may need device-specific information such as a public key for the
    device or component or user on the device.
 
-
-
-
-Birkholz, et al.        Expires 3 September 2020               [Page 15]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
-8.3.  Attestation Results
+7.3.  Attestation Results
 
    Attestation Results may indicate compliance or non-compliance with a
    Verifier's Appraisal Policy.  A result that indicates non-compliance
@@ -861,6 +835,13 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    good reference values, or applying more complex logic on such
    information.
 
+
+
+Birkholz, et al.        Expires 4 September 2020               [Page 15]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
    Thus, Attestation Results often need to include detailed information
    about the Attester, for use by Relying Parties, much like physical
    passports and drivers licenses include personal information such as
@@ -878,7 +859,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    relationship with one entity, rather than a larger set of entities,
    for purposes of its Appraisal Policy.
 
-9.  Claims Encoding Formats
+8.  Claims Encoding Formats
 
    The following diagram illustrates a relationship to which attestation
    is desired to be added:
@@ -890,13 +871,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
       +-------------+               +-------------+
 
                      Figure 6: Typical Resource Access
-
-
-
-Birkholz, et al.        Expires 3 September 2020               [Page 16]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
 
    In this diagram, the protocol between Attester and a Relying Party
    can be any new or existing protocol (e.g., HTTP(S), COAP(S), 802.1x,
@@ -915,6 +889,15 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    embedded into an X.509 certificate to be passed in the protocol.
    Thus, attestation-related information could be natively encoded in
    X.509 certificate extensions, or could be natively encoded in some
+
+
+
+
+Birkholz, et al.        Expires 4 September 2020               [Page 16]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
    other format (e.g., a CWT) which in turn is then encoded in an X.509
    certificate extension.
 
@@ -939,21 +922,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    Evidence that encodes claims in one format, while issuing Attestation
    Results that encode claims in a different format.
 
-
-
-
-
-
-
-
-
-
-
-Birkholz, et al.        Expires 3 September 2020               [Page 17]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
                        Evidence           Attestation Results
 
        .--------------.   CWT                    CWT   .-------------------.
@@ -975,7 +943,18 @@ Internet-Draft              RATS Arch & Terms                 March 2020
       Figure 7: Multiple Attesters and Relying Parties with Different
                                   Formats
 
-10.  Freshness
+
+
+
+
+
+
+Birkholz, et al.        Expires 4 September 2020               [Page 17]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
+9.  Freshness
 
    It is important to prevent replay attacks where an attacker replays
    old Evidence or an old Attestation Result that is no longer correct.
@@ -1002,14 +981,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    signed timestamp (e.g., using [I-D.birkholz-rats-tuda]) along with
    the claims in the Evidence or Attestation Result, so that the remote
    entity knows that the claims were signed at that time, as long as it
-
-
-
-Birkholz, et al.        Expires 3 September 2020               [Page 18]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
    has some assurance that the timestamp is correct.  This typically
    requires additional claims about the signer's time synchronization
    mechanism in order to provide such assurance.
@@ -1021,7 +992,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    have been generated at boot, and then used in claims as long as the
    signer can guarantee that they cannot have changed since boot.
 
-11.  Privacy Considerations
+10.  Privacy Considerations
 
    The conveyance of Evidence and the resulting Attestation Results
    reveal a great deal of information about the internal state of a
@@ -1032,11 +1003,18 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    that a device is running a weak version of firmware provides a way to
    aim attacks better.
 
+
+
+Birkholz, et al.        Expires 4 September 2020               [Page 18]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
    Protocols that convey Evidence or Attestation Results are responsible
    for detailing what kinds of information are disclosed, and to whom
    they are exposed.
 
-12.  Security Considerations
+11.  Security Considerations
 
    Any solution that conveys information used for security purposes,
    whether such information is in the form of Evidence, Attestation
@@ -1045,7 +1023,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    also needs to support additional security protections.  For example,
    additional means of authentication, confidentiality, integrity,
    replay, denial of service and privacy protection are needed in many
-   use cases.  Section 10 discusses ways in which freshness can be used
+   use cases.  Section 9 discusses ways in which freshness can be used
    in this architecture to protect against replay attacks.
 
    To evaluate the security provided by a particular Appraisal Policy,
@@ -1059,24 +1037,17 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    attest to the health of the client providing the Appraisal Policy
    needs to be considered.
 
-
-
-Birkholz, et al.        Expires 3 September 2020               [Page 19]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
-13.  IANA Considerations
+12.  IANA Considerations
 
    This document does not require any actions by IANA.
 
-14.  Acknowledgments
+13.  Acknowledgments
 
    Special thanks go to Joerg Borchert, Nancy Cam-Winget, Jessica
    Fitzgerald-McKay, Thomas Fossati, Diego Lopez, Laurence Lundblade,
    Wei Pan, Paul Rowe, Hannes Tschofenig, Frank Xia, and David Wooten.
 
-15.  Contributors
+14.  Contributors
 
    Thomas Hardjono created older versions of the terminology section in
    collaboration with Ned Smith.  Eric Voit provided the conceptual
@@ -1086,7 +1057,14 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    the motivational building blocks with respect to the Internet Threat
    Model.
 
-16.  Informative References
+15.  Informative References
+
+
+
+Birkholz, et al.        Expires 4 September 2020               [Page 19]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
 
    [I-D.birkholz-rats-tuda]
               Fuchs, A., Birkholz, H., McDonald, I., and C. Bormann,
@@ -1113,15 +1091,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
               (JWT)", RFC 7519, DOI 10.17487/RFC7519, May 2015,
               <https://www.rfc-editor.org/info/rfc7519>.
 
-
-
-
-
-Birkholz, et al.        Expires 3 September 2020               [Page 20]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
    [RFC8392]  Jones, M., Wahlstroem, E., Erdtman, S., and H. Tschofenig,
               "CBOR Web Token (CWT)", RFC 8392, DOI 10.17487/RFC8392,
               May 2018, <https://www.rfc-editor.org/info/rfc8392>.
@@ -1142,6 +1111,15 @@ Authors' Addresses
    United States of America
 
    Email: dthaler@microsoft.com
+
+
+
+
+
+
+Birkholz, et al.        Expires 4 September 2020               [Page 20]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
 
 
    Michael Richardson
@@ -1173,4 +1151,26 @@ Authors' Addresses
 
 
 
-Birkholz, et al.        Expires 3 September 2020               [Page 21]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Birkholz, et al.        Expires 4 September 2020               [Page 21]
