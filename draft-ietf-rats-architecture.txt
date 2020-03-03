@@ -235,7 +235,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    details of the model.
 
    This typically works by having some protected environment in the
-   device attest to some manufacturer service.  If attestation succeeds.
+   device attest to some manufacturer service.  If attestation succeeds,
    then the manufacturer service releases either the model, or a key to
    decrypt a model the Attester already has in encrypted form, to the
    requester.
@@ -284,7 +284,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
    *  Relying Party: A device or application connected to potentially
       dangerous physical equipment (hazardous chemical processing,
-      traffic control, power grid, etc.
+      traffic control, power grid, etc.)
 
 3.5.  Trusted Execution Environment (TEE) Provisioning
 
@@ -678,7 +678,9 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    Environment combines the Attestation Results into the final Evidence
    of the whole Composite Attester which is sent off to the remote
    Verifier, which might treat the claims obtained from the local
-   Attestation Results as if they were Evidence.
+   Attestation Results as if they were Evidence.  In this situation, the
+   trust model described in Section 6 is also suitable for the local
+   verifier.
 
 5.  Topological Models
 
@@ -709,8 +711,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    that protocol constrain the serialization format of the Attestation
    Result.  The format of the Evidence on the other hand is only
    constrained by the Attester-Verifier attestation protocol.
-
-
 
 
 
@@ -903,6 +903,15 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    trustworthiness of the Verifier before accepting its Attestation
    Results.
 
+   The Endorser and Verifier Owner may need to trust the Verifier before
+   giving the Endorsement and Appraisal Policy to it.  Such trust can
+   also be established directly or indirectly, implicitly or explicitly.
+   One explicit way to establish such trust may be the Verifier first
+   acts as an Attester and attests to the Endorser and/or Verifier Owner
+   as the Relying Parties.  If it is accepted as trustworthy, then they
+   can provide Endorsements and Appraisal Policies that enable it to act
+   as a Verifier.
+
    The Verifier trusts (or more specifically, the Verifier's security
    policy is written in a way that configures the Verifier to trust) a
    manufacturer, or the manufacturer's hardware, so as to be able to
@@ -937,15 +946,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    the device, and the level of confidence in the correctness of the
    information.  Evidence is typically signed by the device (whether by
    hardware, firmware, or software on the device), and evaluating it in
-   isolation would require Appraisal Policy to be based on device-
-   specific details (e.g., a device public key).
-
-
-
-
-
-
-
 
 
 
@@ -953,6 +953,9 @@ Birkholz, et al.        Expires 4 September 2020               [Page 17]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
+
+   isolation would require Appraisal Policy to be based on device-
+   specific details (e.g., a device public key).
 
 7.2.  Endorsements
 
@@ -999,9 +1002,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    Party's Appraisal Policy.  The simplest such policy might be to
    simply authorize any party supplying a compliant Attestation Result
    signed by a trusted Verifier.  A more complex policy might also
-   entail comparing information provided in the result against known-
-   good reference values, or applying more complex logic on such
-   information.
 
 
 
@@ -1009,6 +1009,10 @@ Birkholz, et al.        Expires 4 September 2020               [Page 18]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
+
+   entail comparing information provided in the result against known-
+   good reference values, or applying more complex logic on such
+   information.
 
    Thus, Attestation Results often need to include detailed information
    about the Attester, for use by Relying Parties, much like physical
@@ -1054,10 +1058,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    formats they can transport.  For example, OPC UA [OPCUA] (probably
    the most common protocol in industrial IoT environments) is defined
    to carry X.509 certificates and so security information must be
-   embedded into an X.509 certificate to be passed in the protocol.
-   Thus, attestation-related information could be natively encoded in
-   X.509 certificate extensions, or could be natively encoded in some
-
 
 
 
@@ -1066,6 +1066,9 @@ Birkholz, et al.        Expires 4 September 2020               [Page 19]
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
+   embedded into an X.509 certificate to be passed in the protocol.
+   Thus, attestation-related information could be natively encoded in
+   X.509 certificate extensions, or could be natively encoded in some
    other format (e.g., a CWT) which in turn is then encoded in an X.509
    certificate extension.
 
@@ -1110,9 +1113,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
       Figure 8: Multiple Attesters and Relying Parties with Different
                                   Formats
-
-
-
 
 
 

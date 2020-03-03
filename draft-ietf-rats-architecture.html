@@ -1138,7 +1138,7 @@ in terms of the ML model it developed and that runs in the devices that its
 customers purchased, and it wants to prevent attackers, potentially including
 the customer themselves, from seeing the details of the model.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 <p id="section-3.2-2">This typically works by having some protected environment
-in the device attest to some manufacturer service.  If attestation succeeds.
+in the device attest to some manufacturer service.  If attestation succeeds,
 then the manufacturer service releases either the model, or a key to decrypt
 a model the Attester already has in encrypted form, to the requester.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
 <ul>
@@ -1186,7 +1186,7 @@ that are within policy.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
 </li>
 <li id="section-3.4-2.2">Relying Party: A device or application connected to potentially dangerous
 physical equipment (hazardous chemical processing, traffic control,
-power grid, etc.<a href="#section-3.4-2.2" class="pilcrow">¶</a>
+power grid, etc.)<a href="#section-3.4-2.2" class="pilcrow">¶</a>
 </li>
 </ul>
 </section>
@@ -1500,7 +1500,8 @@ same way as any other Verifier), for evaluating these Attesters' trustworthiness
 Then the Lead Attesting Environment combines the Attestation Results into
 the final Evidence of the whole Composite Attester which is sent off to the remote
 Verifier, which might treat the claims obtained from the local Attestation Results
-as if they were Evidence.<a href="#section-4.3-8" class="pilcrow">¶</a></p>
+as if they were Evidence. In this situation, the trust model described
+in <a href="#trustmodel" class="xref">Section 6</a> is also suitable for the local verifier.<a href="#section-4.3-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1683,7 +1684,7 @@ plans to support in the TEEP architecture <span>[<a href="#I-D.ietf-teep-archite
 </div>
 </section>
 </div>
-<div id="trust-model">
+<div id="trustmodel">
 <section id="section-6">
       <h2 id="name-trust-model">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-trust-model" class="section-name selfRef">Trust Model</a>
@@ -1699,7 +1700,15 @@ Party combination).  Or, for a stronger level of security, the
 Relying Party might require that the Verifier itself provide
 information about itself that the Relying Party can use to evaluate
 the trustworthiness of the Verifier before accepting its Attestation Results.<a href="#section-6-1" class="pilcrow">¶</a></p>
-<p id="section-6-2">The Verifier trusts (or more specifically, the Verifier's security
+<p id="section-6-2">The Endorser and Verifier Owner may need to trust the Verifier
+before giving the Endorsement and Appraisal Policy to it.
+Such trust can also be established directly or indirectly,
+implicitly or explicitly. One explicit way to establish such trust
+may be the Verifier first acts as an Attester and attests to the
+Endorser and/or Verifier Owner as the Relying Parties.
+If it is accepted as trustworthy, then they can provide Endorsements
+and Appraisal Policies that enable it to act as a Verifier.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-3">The Verifier trusts (or more specifically, the Verifier's security
 policy is written in a way that configures the Verifier to trust) a
 manufacturer, or the manufacturer's hardware, so as to be able to
 evaluate the trustworthiness of that manufacturer's devices.  In solutions
@@ -1711,13 +1720,13 @@ provided about it by the lower-layer hypervisor or firmware is true.
 A stronger level of security comes when information can be vouched
 for by hardware or by ROM code, especially if such hardware is
 physically resistant to hardware tampering.  The component that is
-implicitly trusted is often referred to as a Root of Trust.<a href="#section-6-2" class="pilcrow">¶</a></p>
-<p id="section-6-3">In some scenarios, Evidence might contain sensitive information such as
+implicitly trusted is often referred to as a Root of Trust.<a href="#section-6-3" class="pilcrow">¶</a></p>
+<p id="section-6-4">In some scenarios, Evidence might contain sensitive information such as
 Personally Identifiable Information.
 Thus, an Attester must trust entities to which it sends Evidence, to not
 reveal sensitive data to unauthorized parties.
 The Verifier may share this information with other authorized parties, according rules that it controls.
-In the background-check model, this Evidence may also be revealed to Relying Party(s).<a href="#section-6-3" class="pilcrow">¶</a></p>
+In the background-check model, this Evidence may also be revealed to Relying Party(s).<a href="#section-6-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="messages">
