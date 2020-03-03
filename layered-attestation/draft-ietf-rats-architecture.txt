@@ -404,6 +404,10 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    and application) where a Target Environment is the Attesting
    Environment for the next environment in the boot sequence.
 
+   Another example is that of a Composite Devices: Composite Devices are
+   defined below, and are inherently composed of multiple nested
+   environments.
+
    Claims are collected from Target Environments.  That is, Attesting
    Environments collect the raw values and the information to be
    represented in claims.  Attesting Environments then format them
@@ -420,15 +424,11 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    types of environments that can be nested or staged adds complexity to
    the architectural layout of how an Attester - in itself - is composed
    and therefore has to conduct the Claims collection in order to create
-   believable Attestation Evidence.  This complexity is independent of
-   the concept defined by Composite Devices.  Composite Attesters are
-   inherently composed of multiple nested environments.  The following
-   example is intended to illustrate this composition:
+   believable Attestation Evidence.  The following example is intended
+   to illustrate this composition:
 
    A very common example is elaborated on to illustrate Layered
    Attestation.
-
-
 
 
 
@@ -487,17 +487,17 @@ Internet-Draft              RATS Arch & Terms                 March 2020
                          Figure 2: Layered Attester
 
    The very first Attesting Environment has to ensure the integrity of
-   the (U)EFI / BIOS / Firmware that initially boots up a composite
-   device (e.g., a cell phone).  A hardware component, which effectively
-   can encompasses immutable execution environments (static code Roots
-   of Trust) and mutable execution environments (dynamic code Roots of
-   Trusts), executes the very first Claim Collection.  These Claims have
-   to be stored securely.  At this stage of the boot-cycle of a
-   composite device, the Claims collected typically cannot be composed
-   into Evidence.
+   the (U)EFI / BIOS / Firmware [FIXME] that initially boots up a
+   composite device (e.g., a cell phone).  These Claims have to be
+   measured securely.  At this stage of the boot-cycle of a composite
+   device, the Claims collected typically cannot be composed into
+   Evidence.
 
    The very first Attesting Environment in this example can be a
    hardware component that is a Static Code Root of Trust.  As in any
+   other scenario, this hardware component is the first Attesting
+   Environment.  It collects a rather concise number of Claims about the
+   Target Environment.  The Target Environment in this example is the
 
 
 
@@ -506,18 +506,13 @@ Birkholz, et al.        Expires 4 September 2020                [Page 9]
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
-   other scenario, this hardware component is the first Attesting
-   Environment.  It collects a rather concise number of Claims about the
-   Target Environment.  The Target Environment in this example is the
-   (U)EFI / BIOS / Firmware.  After the boot sequence started, the
+   (U)EFI / BIOS / Firmware [FIXME] After the boot sequence started, the
    Target Environment conducts the most important and defining feature
-   of layered attestation: The successfully measured [comment: this is
-   why Henk prefers 'measured' above 'collected' because it can be used
-   in English text better] environment that is the (U)EFI / BIOS /
-   Firmware now becomes the Attesting Environment.  Analogously, the
-   Attesting Environment hands off its duty to one of its Target
-   Environments.  This procedure in Layered Attestation is called
-   Staging.
+   of layered attestation: The successfully measured environment that is
+   the (U)EFI / BIOS / Firmware now becomes the Attesting Environment.
+   Analogously, the Attesting Environment hands off its duty to one of
+   its Target Environments.  This procedure in Layered Attestation is
+   called Staging.
 
    Now, the duties have been transferred and Layered Attestation takes
    place.  The initial Attesting Environment relinquishes its duties to
@@ -554,6 +549,11 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    The essence of this example is a cascade of staged boot environments.
    Each environment (after the initial one that is a root-of-trust) has
    the duty of measuring its next environment before it is started.
+   Therefore, creating a layered boot sequence and correspondingly
+   enabling Layered Attestation.
+
+
+
 
 
 
@@ -561,9 +561,6 @@ Birkholz, et al.        Expires 4 September 2020               [Page 10]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
-
-   Therefore, creating a layered boot sequence and correspondingly
-   enabling Layered Attestation.
 
 4.3.  Composite Attester
 
@@ -603,6 +600,9 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    each router is an Attester and the main router is the Lead Attester.
 
    Figure 3 depicts the conceptual data flow for a Composite Device.
+
+
+
 
 
 
