@@ -10,6 +10,8 @@ Expires: 4 September 2020                                      Microsoft
                                                 Sandelman Software Works
                                                                 N. Smith
                                                                    Intel
+                                                                  W. Pan
+                                                     Huawei Technologies
                                                             3 March 2020
 
 
@@ -48,8 +50,6 @@ Status of This Memo
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
-   time.  It is inappropriate to use Internet-Drafts as reference
-   material or to cite them other than as "work in progress."
 
 
 
@@ -57,6 +57,9 @@ Birkholz, et al.        Expires 4 September 2020                [Page 1]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
+
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
 
    This Internet-Draft will expire on 4 September 2020.
 
@@ -103,9 +106,6 @@ Table of Contents
    10. Privacy Considerations  . . . . . . . . . . . . . . . . . . .  21
    11. Security Considerations . . . . . . . . . . . . . . . . . . .  22
    12. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  22
-   13. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  22
-   14. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  22
-   15. Informative References  . . . . . . . . . . . . . . . . . . .  22
 
 
 
@@ -114,6 +114,9 @@ Birkholz, et al.        Expires 4 September 2020                [Page 2]
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
+   13. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  22
+   14. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  22
+   15. Informative References  . . . . . . . . . . . . . . . . . . .  22
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  23
 
 1.  Introduction
@@ -158,9 +161,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    *  Evidence: A set of information about an Attester that is to be
       evaluated by a Verifier.
 
-   *  Relying Party: An entity that depends on the validity of
-      information about another entity, typically for purposes of
-      authorization.  Compare /relying party/ in [RFC4949].
 
 
 
@@ -169,6 +169,10 @@ Birkholz, et al.        Expires 4 September 2020                [Page 3]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
+
+   *  Relying Party: An entity that depends on the validity of
+      information about another entity, typically for purposes of
+      authorization.  Compare /relying party/ in [RFC4949].
 
    *  Relying Party Owner: An entity, such as an administrator, that is
       authorized to configure Appraisal Policy for Attestation Results
@@ -214,10 +218,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
    *  Attester: A device desiring access to a network
 
-   *  Relying Party: A network infrastructure device such as a router,
-      switch, or access point.
-
-
 
 
 
@@ -225,6 +225,9 @@ Birkholz, et al.        Expires 4 September 2020                [Page 4]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
+
+   *  Relying Party: A network infrastructure device such as a router,
+      switch, or access point.
 
 3.2.  Confidential Machine Learning (ML) Model Protection
 
@@ -271,9 +274,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    such, attestation can be used to only accept commands from requesters
    that are within policy.
 
-   *  Attester: A device or application wishing to control physical
-      equipment.
-
 
 
 
@@ -281,6 +281,9 @@ Birkholz, et al.        Expires 4 September 2020                [Page 5]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
+
+   *  Attester: A device or application wishing to control physical
+      equipment.
 
    *  Relying Party: A device or application connected to potentially
       dangerous physical equipment (hazardous chemical processing,
@@ -325,9 +328,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
    Figure 1 depicts the data that flows between different roles,
    independent of protocol or use case.
-
-
-
 
 
 
@@ -1304,10 +1304,10 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    Email: ned.smith@intel.com
 
 
+   Wei Pan
+   Huawei Technologies
 
-
-
-
+   Email: william.panwei@huawei.com
 
 
 
