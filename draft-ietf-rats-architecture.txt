@@ -87,25 +87,25 @@ Table of Contents
      3.6.  Hardware Watchdog . . . . . . . . . . . . . . . . . . . .   6
    4.  Architectural Overview  . . . . . . . . . . . . . . . . . . .   6
      4.1.  Two Types of Environments of an Attester  . . . . . . . .   8
-     4.2.  Composite Attester  . . . . . . . . . . . . . . . . . . .   8
-   5.  Topological Models  . . . . . . . . . . . . . . . . . . . . .  10
-     5.1.  Passport Model  . . . . . . . . . . . . . . . . . . . . .  10
-     5.2.  Background-Check Model  . . . . . . . . . . . . . . . . .  11
-     5.3.  Combinations  . . . . . . . . . . . . . . . . . . . . . .  12
-   6.  Trust Model . . . . . . . . . . . . . . . . . . . . . . . . .  13
-   7.  Conceptual Messages . . . . . . . . . . . . . . . . . . . . .  14
-     7.1.  Evidence  . . . . . . . . . . . . . . . . . . . . . . . .  14
-     7.2.  Endorsements  . . . . . . . . . . . . . . . . . . . . . .  15
-     7.3.  Attestation Results . . . . . . . . . . . . . . . . . . .  15
-   8.  Claims Encoding Formats . . . . . . . . . . . . . . . . . . .  16
-   9.  Freshness . . . . . . . . . . . . . . . . . . . . . . . . . .  18
-   10. Privacy Considerations  . . . . . . . . . . . . . . . . . . .  18
-   11. Security Considerations . . . . . . . . . . . . . . . . . . .  19
-   12. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  19
-   13. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  19
-   14. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  19
-   15. Informative References  . . . . . . . . . . . . . . . . . . .  19
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  20
+     4.2.  Layered Attestation Procedures  . . . . . . . . . . . . .   8
+     4.3.  Composite Attester  . . . . . . . . . . . . . . . . . . .  11
+   5.  Topological Models  . . . . . . . . . . . . . . . . . . . . .  13
+     5.1.  Passport Model  . . . . . . . . . . . . . . . . . . . . .  13
+     5.2.  Background-Check Model  . . . . . . . . . . . . . . . . .  14
+     5.3.  Combinations  . . . . . . . . . . . . . . . . . . . . . .  15
+   6.  Trust Model . . . . . . . . . . . . . . . . . . . . . . . . .  16
+   7.  Conceptual Messages . . . . . . . . . . . . . . . . . . . . .  17
+     7.1.  Evidence  . . . . . . . . . . . . . . . . . . . . . . . .  17
+     7.2.  Endorsements  . . . . . . . . . . . . . . . . . . . . . .  18
+     7.3.  Attestation Results . . . . . . . . . . . . . . . . . . .  18
+   8.  Claims Encoding Formats . . . . . . . . . . . . . . . . . . .  19
+   9.  Freshness . . . . . . . . . . . . . . . . . . . . . . . . . .  21
+   10. Privacy Considerations  . . . . . . . . . . . . . . . . . . .  21
+   11. Security Considerations . . . . . . . . . . . . . . . . . . .  22
+   12. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  22
+   13. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  22
+   14. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  22
+   15. Informative References  . . . . . . . . . . . . . . . . . . .  22
 
 
 
@@ -113,6 +113,8 @@ Birkholz, et al.        Expires 4 September 2020                [Page 2]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
+
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  23
 
 1.  Introduction
 
@@ -160,8 +162,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
       information about another entity, typically for purposes of
       authorization.  Compare /relying party/ in [RFC4949].
 
-   *  Relying Party Owner: An entity, such as an administrator, that is
-
 
 
 
@@ -170,6 +170,7 @@ Birkholz, et al.        Expires 4 September 2020                [Page 3]
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
+   *  Relying Party Owner: An entity, such as an administrator, that is
       authorized to configure Appraisal Policy for Attestation Results
       in a Relying Party.
 
@@ -215,7 +216,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
    *  Relying Party: A network infrastructure device such as a router,
       switch, or access point.
-
 
 
 
@@ -404,6 +404,10 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    and application) where a Target Environment is the Attesting
    Environment for the next environment in the boot sequence.
 
+   Another example is that of a Composite Devices: Composite Devices are
+   defined below, and are inherently composed of multiple nested
+   environments.
+
    Claims are collected from Target Environments.  That is, Attesting
    Environments collect the raw values and the information to be
    represented in claims.  Attesting Environments then format them
@@ -413,7 +417,152 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    include Trusted Execution Environments (TEE), embedded Secure
    Elements (eSE), or Hardware Security Modules (HSM).
 
-4.2.  Composite Attester
+4.2.  Layered Attestation Procedures
+
+   By definition, the Attester role takes on the duty to create
+   Evidence.  The fact that an Attester role is composed of several
+   types of environments that can be nested or staged adds complexity to
+   the architectural layout of how an Attester - in itself - is composed
+   and therefore has to conduct the Claims collection in order to create
+   believable Attestation Evidence.  The following example is intended
+   to illustrate this composition:
+
+   A very common example is elaborated on to illustrate Layered
+   Attestation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Birkholz, et al.        Expires 4 September 2020                [Page 8]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
+               .----------.                    .----------.
+               |          |                    |          |
+               | Endorser |------------------->| Verifier |
+               |          |    Endorsements    |          |
+               '----------'  for A, B, and C   '----------'
+                                                     ^
+           .------------------------------------.    |
+           |                                    |    |
+           |   .---------------------------.    |    |
+           |   | Target                    |    |    | Layered
+           |   | Environment               |    |    | Evidence
+           |   | C                         |    |    |   for
+           |   '---------------------------'    |    | B and C
+           |           Collect |                |    |
+           |           claims  |                |    |
+           |   .---------------|-----------.    |    |
+           |   | Target        v           |    |    |
+           |   | Environment .-----------. |    |    |
+           |   | B           | Attesting | |    |    |
+           |   |             |Environment|-----------'
+           |   |             |     B     | |    |
+           |   |             '-----------' |    |
+           |   |                     ^     |    |
+           |   '---------------------|-----'    |
+           |           Collect |     | Evidence |
+           |           claims  v     |  for B   |
+           |                 .-----------.      |
+           |                 | Attesting |      |
+           |                 |Environment|      |
+           |                 |     A     |      |
+           |                 '-----------'      |
+           |                                    |
+           '------------------------------------'
+
+                         Figure 2: Layered Attester
+
+   The very first Attesting Environment has to ensure the integrity of
+   the (U)EFI / BIOS / Firmware [FIXME] that initially boots up a
+   composite device (e.g., a cell phone).  These Claims have to be
+   measured securely.  At this stage of the boot-cycle of a composite
+   device, the Claims collected typically cannot be composed into
+   Evidence.
+
+   The very first Attesting Environment in this example can be a
+   hardware component that is a Static Code Root of Trust.  As in any
+   other scenario, this hardware component is the first Attesting
+   Environment.  It collects a rather concise number of Claims about the
+   Target Environment.  The Target Environment in this example is the
+
+
+
+Birkholz, et al.        Expires 4 September 2020                [Page 9]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
+   (U)EFI / BIOS / Firmware [FIXME] After the boot sequence started, the
+   Target Environment conducts the most important and defining feature
+   of layered attestation: The successfully measured environment that is
+   the (U)EFI / BIOS / Firmware now becomes the Attesting Environment.
+   Analogously, the Attesting Environment hands off its duty to one of
+   its Target Environments.  This procedure in Layered Attestation is
+   called Staging.
+
+   Now, the duties have been transferred and Layered Attestation takes
+   place.  The initial Attesting Environment relinquishes its duties to
+   the Target Environment.  It is important to note that the new
+   Attesting Environment cannot alter the content about its own
+   measurements.  If the Attesting Environment would be able to do that,
+   Layered Attestation would become unfeasible.
+
+   In this example the duty of being the Attesting Environment is now
+   taken over by the (U)EFI / BIOS / Firmware that was the Attested
+   Environment before.  This transfer of duty is the essential part of
+   Layered Attestation.  The (U)EFI / BIOS / Firmware now is the
+   Attesting Environment.  The next Target Environment is, in this
+   example, a bootloader.  There are potentially multiple kernels to
+   boot, the decision is up to the bootloader.  Only a bootloader with
+   intact integrity will make an appropriate decision.  Therefore,
+   Claims about the integrity of a bootloader are now collected by the
+   freshly appointed Attesting Environment that is the (U)EFI / BIOS /
+   Firmware.  Collected Claims have to be stored by the current
+   Attesting Environment in a similar shielded and secured manner, so
+   that the next Attesting Environment is not capable of altering the
+   collection of claims stored.
+
+   Continuing with this example, the bootloader is now in charge of
+   collecting Claims about the next execution environment.  The next
+   execution environment in this example is the kernel to be booted up.
+   Analogously, the next transfer of duties in this Layered Attestation
+   example occurs: The duty of being an Attesting Environment is
+   transferred to a successfully measured kernel [Henk: we might have to
+   define what successful means in this example and beyond].  In this
+   sequence, the kernel is now collecting additional Claims and is
+   storing them in a secure and shielded manner.
+
+   The essence of this example is a cascade of staged boot environments.
+   Each environment (after the initial one that is a root-of-trust) has
+   the duty of measuring its next environment before it is started.
+   Therefore, creating a layered boot sequence and correspondingly
+   enabling Layered Attestation.
+
+
+
+
+
+
+Birkholz, et al.        Expires 4 September 2020               [Page 10]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
+4.3.  Composite Attester
 
    A Composite Attester is an entity composed of multiple sub-entities
    such that its trustworthiness has to be determined by evaluating all
@@ -442,14 +591,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
    Another example is a multi-chassis router composed of multiple single
    carrier-grade routers.  The multi-chassis router provides higher
-
-
-
-Birkholz, et al.        Expires 4 September 2020                [Page 8]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
    throughput by interconnecting multiple routers and can be logically
    treated as one router for simpler management.  Among these routers,
    there is only one main router that connects to the Verifier.  Other
@@ -458,7 +599,24 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    So, in this case, the multi-chassis router is the Composite Attester,
    each router is an Attester and the main router is the Lead Attester.
 
-   Figure 2 depicts the conceptual data flow for a Composite Device.
+   Figure 3 depicts the conceptual data flow for a Composite Device.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Birkholz, et al.        Expires 4 September 2020               [Page 11]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
 
                       .-----------------------------.
                       |           Verifier          |
@@ -488,7 +646,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    |                       Composite Device                           |
    '------------------------------------------------------------------'
 
-           Figure 2: Conceptual Data Flow for a Composite Device
+           Figure 3: Conceptual Data Flow for a Composite Device
 
    In the Composite Device, each Attester generates its own Evidence by
    its Attesting Environment(s) collecting the claims from its Target
@@ -498,14 +656,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
    The Lead Attester's Attesting Environment may or may not include its
    own Verifier.  One situation is that the Attesting Environment has no
-
-
-
-Birkholz, et al.        Expires 4 September 2020                [Page 9]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
    local Verifier.  In this situation, the Lead Attesting Environment
    simply combines the various Evidences into the final Evidence that is
    sent off to the remote Verifier, which evaluates the trustworthiness
@@ -516,6 +666,14 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    local Verifier.  After collecting the Evidence of other Attesters,
    this Attesting Environment verifies them using Endorsements and
    Appraisal Policies (obtained the same way as any other Verifier), for
+
+
+
+Birkholz, et al.        Expires 4 September 2020               [Page 12]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
    evaluating these Attesters' trustworthiness.  Then the Lead Attesting
    Environment combines the Attestation Results into the final Evidence
    of the whole Composite Attester which is sent off to the remote
@@ -554,16 +712,23 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    Since the resource access protocol between the Attester and Relying
    Party includes an Attestation Result, in this model the details of
    that protocol constrain the serialization format of the Attestation
+   Result.  The format of the Evidence on the other hand is only
+   constrained by the Attester-Verifier attestation protocol.
 
 
 
-Birkholz, et al.        Expires 4 September 2020               [Page 10]
+
+
+
+
+
+
+
+
+Birkholz, et al.        Expires 4 September 2020               [Page 13]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
-
-   Result.  The format of the Evidence on the other hand is only
-   constrained by the Attester-Verifier attestation protocol.
 
          +-------------+
          |             | Compare Evidence
@@ -580,7 +745,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
          |             |     Result    |    Party    | Appraisal Policy
          +-------------+               +-------------+
 
-                          Figure 3: Passport Model
+                          Figure 4: Passport Model
 
    The passport model is so named because of its resemblance to how
    nations issue passports to their citizens.  The nature of the
@@ -611,15 +776,16 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    be _encapsulated in_ the format required by the resource access
    protocol between the Attester and Relying Party.
 
+   However, like in the Passport model, an Attestation Result is still
+   consumed by the Relying Party and so the serialization format of the
 
 
-Birkholz, et al.        Expires 4 September 2020               [Page 11]
+
+Birkholz, et al.        Expires 4 September 2020               [Page 14]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
-   However, like in the Passport model, an Attestation Result is still
-   consumed by the Relying Party and so the serialization format of the
    Attestation Result is still important.  If the Relying Party is a
    constrained node whose purpose is to serve a given type resource
    using a standard resource access protocol, it already needs the
@@ -644,7 +810,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
       |             |               |    Party    | Appraisal Policy
       +-------------+               +-------------+
 
-                      Figure 4: Background-Check Model
+                      Figure 5: Background-Check Model
 
    The background-check model is so named because of the resemblance of
    how employers and volunteer organizations perform background checks.
@@ -666,22 +832,23 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    It is also worth pointing out that the choice of model is generally
    up to the Relying Party, and the same device may need to attest to
    different Relying Parties for different use cases (e.g., a network
+   infrastructure device to gain access to the network, and then a
 
 
 
-Birkholz, et al.        Expires 4 September 2020               [Page 12]
+
+Birkholz, et al.        Expires 4 September 2020               [Page 15]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
-   infrastructure device to gain access to the network, and then a
    server holding confidential data to get access to that data).  As
    such, both models may simultaneously be in use by the same device.
 
-   Figure 5 shows another example of a combination where Relying Party 1
+   Figure 6 shows another example of a combination where Relying Party 1
    uses the passport model, whereas Relying Party 2 uses an extension of
    the background-check model.  Specifically, in addition to the basic
-   functionality shown in Figure 4, Relying Party 2 actually provides
+   functionality shown in Figure 5, Relying Party 2 actually provides
    the Attestation Result back to the Attester, allowing the Attester to
    use it with other Relying Parties.  This is the model that the
    Trusted Application Manager plans to support in the TEEP architecture
@@ -711,7 +878,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
          |          |     Result    |  Party 1 | Appraisal Policy
          +----------+               +----------+
 
-                       Figure 5: Example Combination
+                       Figure 6: Example Combination
 
 6.  Trust Model
 
@@ -722,15 +889,15 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    come by trusting an entity (e.g., a Certificate Authority) that is in
    the Verifier's certificate chain.  The Relying Party might implicitly
    trust a Verifier (such as in the Verifying Relying Party
+   combination).  Or, for a stronger level of security, the Relying
 
 
 
-Birkholz, et al.        Expires 4 September 2020               [Page 13]
+Birkholz, et al.        Expires 4 September 2020               [Page 16]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
-   combination).  Or, for a stronger level of security, the Relying
    Party might require that the Verifier itself provide information
    about itself that the Relying Party can use to evaluate the
    trustworthiness of the Verifier before accepting its Attestation
@@ -781,7 +948,8 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 4 September 2020               [Page 14]
+
+Birkholz, et al.        Expires 4 September 2020               [Page 17]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -837,7 +1005,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 4 September 2020               [Page 15]
+Birkholz, et al.        Expires 4 September 2020               [Page 18]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -870,7 +1038,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
       |             |    resource   |    Party    | against security policy
       +-------------+               +-------------+
 
-                     Figure 6: Typical Resource Access
+                     Figure 7: Typical Resource Access
 
    In this diagram, the protocol between Attester and a Relying Party
    can be any new or existing protocol (e.g., HTTP(S), COAP(S), 802.1x,
@@ -893,7 +1061,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 4 September 2020               [Page 16]
+Birkholz, et al.        Expires 4 September 2020               [Page 19]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -940,7 +1108,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
        |  Attester-E  |------------'      '----------->|  Relying Party Z  |
        '--------------'                                `-------------------'
 
-      Figure 7: Multiple Attesters and Relying Parties with Different
+      Figure 8: Multiple Attesters and Relying Parties with Different
                                   Formats
 
 
@@ -949,7 +1117,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 4 September 2020               [Page 17]
+Birkholz, et al.        Expires 4 September 2020               [Page 20]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -1005,7 +1173,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 4 September 2020               [Page 18]
+Birkholz, et al.        Expires 4 September 2020               [Page 21]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -1061,7 +1229,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 4 September 2020               [Page 19]
+Birkholz, et al.        Expires 4 September 2020               [Page 22]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -1117,7 +1285,7 @@ Authors' Addresses
 
 
 
-Birkholz, et al.        Expires 4 September 2020               [Page 20]
+Birkholz, et al.        Expires 4 September 2020               [Page 23]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -1173,4 +1341,4 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 4 September 2020               [Page 21]
+Birkholz, et al.        Expires 4 September 2020               [Page 24]
