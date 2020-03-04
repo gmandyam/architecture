@@ -81,12 +81,12 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
    2.  Terminology . . . . . . . . . . . . . . . . . . . . . . . . .   3
-   3.  Reference Use Cases . . . . . . . . . . . . . . . . . . . . .   5
+   3.  Reference Use Cases . . . . . . . . . . . . . . . . . . . . .   4
      3.1.  Network Endpoint Assessment . . . . . . . . . . . . . . .   5
      3.2.  Confidential Machine Learning (ML) Model Protection . . .   5
      3.3.  Confidential Data Retrieval . . . . . . . . . . . . . . .   6
      3.4.  Critical Infrastructure Control . . . . . . . . . . . . .   6
-     3.5.  Trusted Execution Environment (TEE) Provisioning  . . . .   7
+     3.5.  Trusted Execution Environment (TEE) Provisioning  . . . .   6
      3.6.  Hardware Watchdog . . . . . . . . . . . . . . . . . . . .   7
    4.  Architectural Overview  . . . . . . . . . . . . . . . . . . .   7
      4.1.  Two Types of Environments of an Attester  . . . . . . . .   9
@@ -123,9 +123,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 1.  Introduction
 
-   <Henk added text based on charter content>
-   <more text to be added here>
-
    In Remote Attestation Procedures (RATS) one peer (the "Attester")
    produces believable information about itself - Evidence - to enable a
    remote peer (the "Relying Party") to decide whether to consider that
@@ -161,6 +158,9 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
    This document uses the following terms.
 
+   Appraisal Policy for Evidence:  A set of rules that direct how a
+      Verifier evaluates the validity of information about an Attester.
+      Compare /security policy/ in [RFC4949]
 
 
 
@@ -169,10 +169,6 @@ Birkholz, et al.        Expires 5 September 2020                [Page 3]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
-
-   Appraisal Policy for Evidence:  A set of rules that direct how a
-      Verifier evaluates the validity of information about an Attester.
-      Compare /security policy/ in [RFC4949]
 
    Appraisal Policy for Attestation Result:  A set of rules that direct
       how a Relying Party uses the Attestation Results regarding an
@@ -213,19 +209,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
       authorized to configure Appraisal Policy for Evidence in a
       Verifier
 
-
-
-
-
-
-
-
-
-Birkholz, et al.        Expires 5 September 2020                [Page 4]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
 3.  Reference Use Cases
 
    This section covers a number of representative use cases for remote
@@ -235,6 +218,13 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    not intend to have a complete list, only to have a set of use cases
    that collectively cover all the functionality required in the
    architecture.
+
+
+
+Birkholz, et al.        Expires 5 September 2020                [Page 4]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
 
    Each use case includes a description, and a summary of what an
    Attester and a Relying Party refer to in the use case.
@@ -274,14 +264,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
    This typically works by having some protected environment in the
    device attest to some manufacturer service.  If remote attestation
-
-
-
-Birkholz, et al.        Expires 5 September 2020                [Page 5]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
    succeeds, then the manufacturer service releases either the model, or
    a key to decrypt a model the Attester already has in encrypted form,
    to the requester.
@@ -290,6 +272,15 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
    Relying Party:  A server or service holding ML models it desires to
       protect
+
+
+
+
+
+Birkholz, et al.        Expires 5 September 2020                [Page 5]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
 
 3.3.  Confidential Data Retrieval
 
@@ -324,20 +315,6 @@ Internet-Draft              RATS Arch & Terms                 March 2020
       dangerous physical equipment (hazardous chemical processing,
       traffic control, power grid, etc.)
 
-
-
-
-
-
-
-
-
-
-Birkholz, et al.        Expires 5 September 2020                [Page 6]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
 3.5.  Trusted Execution Environment (TEE) Provisioning
 
    A "Trusted Application Manager (TAM)" server is responsible for
@@ -353,6 +330,13 @@ Internet-Draft              RATS Arch & Terms                 March 2020
       running trusted applications that can be updated
 
    Relying Party:  A Trusted Application Manager
+
+
+
+Birkholz, et al.        Expires 5 September 2020                [Page 6]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
 
 3.6.  Hardware Watchdog
 
@@ -377,6 +361,22 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
    Figure 1 depicts the data that flows between different roles,
    independent of protocol or use case.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
