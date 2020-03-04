@@ -1,6 +1,156 @@
 [
 
   {
+    "url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/55",
+    "repository_url": "https://api.github.com/repos/ietf-rats-wg/architecture",
+    "labels_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/55/labels{/name}",
+    "comments_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/55/comments",
+    "events_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/55/events",
+    "html_url": "https://github.com/ietf-rats-wg/architecture/issues/55",
+    "id": 574886555,
+    "node_id": "MDU6SXNzdWU1NzQ4ODY1NTU=",
+    "number": 55,
+    "title": "Evidence description misses the mark",
+    "user": {
+      "login": "laurencelundblade",
+      "id": 7951515,
+      "node_id": "MDQ6VXNlcjc5NTE1MTU=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7951515?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/laurencelundblade",
+      "html_url": "https://github.com/laurencelundblade",
+      "followers_url": "https://api.github.com/users/laurencelundblade/followers",
+      "following_url": "https://api.github.com/users/laurencelundblade/following{/other_user}",
+      "gists_url": "https://api.github.com/users/laurencelundblade/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/laurencelundblade/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/laurencelundblade/subscriptions",
+      "organizations_url": "https://api.github.com/users/laurencelundblade/orgs",
+      "repos_url": "https://api.github.com/users/laurencelundblade/repos",
+      "events_url": "https://api.github.com/users/laurencelundblade/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/laurencelundblade/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2020-03-03T19:23:11Z",
+    "updated_at": "2020-03-03T19:23:11Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "Section 7.1 should start out with something more like \"Evidence is made up of claims and usually signed by the attester\"n (not signed by the device).  It should say claims are being standardized.  Should say \"Evidence is always evaluated by a Verifier\"\r\n"
+  },
+  {
+    "url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/54",
+    "repository_url": "https://api.github.com/repos/ietf-rats-wg/architecture",
+    "labels_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/54/labels{/name}",
+    "comments_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/54/comments",
+    "events_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/54/events",
+    "html_url": "https://github.com/ietf-rats-wg/architecture/issues/54",
+    "id": 574883602,
+    "node_id": "MDU6SXNzdWU1NzQ4ODM2MDI=",
+    "number": 54,
+    "title": "Attestation Results description too limited",
+    "user": {
+      "login": "laurencelundblade",
+      "id": 7951515,
+      "node_id": "MDQ6VXNlcjc5NTE1MTU=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7951515?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/laurencelundblade",
+      "html_url": "https://github.com/laurencelundblade",
+      "followers_url": "https://api.github.com/users/laurencelundblade/followers",
+      "following_url": "https://api.github.com/users/laurencelundblade/following{/other_user}",
+      "gists_url": "https://api.github.com/users/laurencelundblade/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/laurencelundblade/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/laurencelundblade/subscriptions",
+      "organizations_url": "https://api.github.com/users/laurencelundblade/orgs",
+      "repos_url": "https://api.github.com/users/laurencelundblade/repos",
+      "events_url": "https://api.github.com/users/laurencelundblade/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/laurencelundblade/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2020-03-03T19:17:45Z",
+    "updated_at": "2020-03-03T19:17:45Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "Attestation Result is far more than compliance/non-compliance for many / most use cases. Attestation Results may contain lots claims that are passed through from the device (e.g., GPS location). I would also expect information from the Endorsement to be passed through, particularly in the case where the Verifier is an aggregator. Implied claims would also show up in the Attestation Result."
+  },
+  {
+    "url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/53",
+    "repository_url": "https://api.github.com/repos/ietf-rats-wg/architecture",
+    "labels_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/53/labels{/name}",
+    "comments_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/53/comments",
+    "events_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/53/events",
+    "html_url": "https://github.com/ietf-rats-wg/architecture/pull/53",
+    "id": 574780301,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzgzMDQzNjUx",
+    "number": 53,
+    "title": "Update section 4.1 per meeting discussion",
+    "user": {
+      "login": "dthaler",
+      "id": 6547784,
+      "node_id": "MDQ6VXNlcjY1NDc3ODQ=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6547784?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/dthaler",
+      "html_url": "https://github.com/dthaler",
+      "followers_url": "https://api.github.com/users/dthaler/followers",
+      "following_url": "https://api.github.com/users/dthaler/following{/other_user}",
+      "gists_url": "https://api.github.com/users/dthaler/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/dthaler/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/dthaler/subscriptions",
+      "organizations_url": "https://api.github.com/users/dthaler/orgs",
+      "repos_url": "https://api.github.com/users/dthaler/repos",
+      "events_url": "https://api.github.com/users/dthaler/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/dthaler/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2020-03-03T16:16:11Z",
+    "updated_at": "2020-03-03T16:16:53Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/ietf-rats-wg/architecture/pulls/53",
+      "html_url": "https://github.com/ietf-rats-wg/architecture/pull/53",
+      "diff_url": "https://github.com/ietf-rats-wg/architecture/pull/53.diff",
+      "patch_url": "https://github.com/ietf-rats-wg/architecture/pull/53.patch"
+    },
+    "body": "Provide forward references\r\nUse \"measure\" in English text\r\n\r\nSigned-off-by: Dave Thaler <dthaler@microsoft.com>"
+  },
+  {
     "url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/52",
     "repository_url": "https://api.github.com/repos/ietf-rats-wg/architecture",
     "labels_url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/52/labels{/name}",
@@ -43,7 +193,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2020-03-03T09:18:06Z",
-    "updated_at": "2020-03-03T13:06:17Z",
+    "updated_at": "2020-03-04T00:47:08Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -88,7 +238,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -97,8 +247,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2020-03-03T03:13:51Z",
-    "updated_at": "2020-03-03T03:13:51Z",
-    "closed_at": null,
+    "updated_at": "2020-03-03T15:52:15Z",
+    "closed_at": "2020-03-03T15:52:15Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/ietf-rats-wg/architecture/pulls/51",
@@ -298,17 +448,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2020-02-25T16:13:44Z",
-    "updated_at": "2020-03-02T19:04:07Z",
-    "closed_at": null,
+    "updated_at": "2020-03-03T15:44:18Z",
+    "closed_at": "2020-03-03T15:44:18Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/ietf-rats-wg/architecture/pulls/47",
@@ -601,9 +751,9 @@
 
     ],
     "milestone": null,
-    "comments": 4,
+    "comments": 6,
     "created_at": "2020-02-11T15:07:17Z",
-    "updated_at": "2020-03-03T01:30:25Z",
+    "updated_at": "2020-03-03T16:33:16Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "TEEP and others needs to know what kind of SLA RATS can provide.\r\n"
@@ -930,17 +1080,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2020-02-05T05:55:47Z",
-    "updated_at": "2020-02-05T05:55:47Z",
-    "closed_at": null,
+    "updated_at": "2020-03-03T16:08:35Z",
+    "closed_at": "2020-03-03T16:08:35Z",
     "author_association": "NONE",
     "body": ""
   },
@@ -978,7 +1128,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -987,8 +1137,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2020-02-05T05:51:08Z",
-    "updated_at": "2020-02-05T15:56:28Z",
-    "closed_at": null,
+    "updated_at": "2020-03-03T15:58:38Z",
+    "closed_at": "2020-03-03T15:58:38Z",
     "author_association": "NONE",
     "body": "otherwise,  the section 4.1 including a lot of content about attester, attesting enviroment and target enviroment are not easy to understand.\r\nOr, at least, have some general introduction or reference to section 6 about what is relation between them."
   },
@@ -1176,7 +1326,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -1185,8 +1335,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2020-02-04T11:30:23Z",
-    "updated_at": "2020-03-03T14:54:13Z",
-    "closed_at": null,
+    "updated_at": "2020-03-03T15:37:49Z",
+    "closed_at": "2020-03-03T15:37:48Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/ietf-rats-wg/architecture/pulls/30",
@@ -1405,7 +1555,10 @@
     "closed_at": "2020-02-11T15:59:45Z",
     "author_association": "COLLABORATOR",
     "body": "<this section can include content from Serialization Formats and Conceptual Messages sections from\r\ndraft-thaler-rats-architecture, and Role Messages content from draft-birkholz-rats-architecture>\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/25",
     "repository_url": "https://api.github.com/repos/ietf-rats-wg/architecture",
@@ -1494,17 +1647,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2020-01-28T15:54:40Z",
-    "updated_at": "2020-02-03T09:11:14Z",
-    "closed_at": null,
+    "updated_at": "2020-03-03T16:09:03Z",
+    "closed_at": "2020-03-03T16:09:02Z",
     "author_association": "COLLABORATOR",
     "body": "\"(via Internal Links or Network Connections)\" is ambiguous.\r\n\r\nIs it Internal (Links or Network Connections) or\r\n(Internal Links) or (Network Connections)\r\n"
   },
@@ -1599,10 +1752,7 @@
       "patch_url": "https://github.com/ietf-rats-wg/architecture/pull/23.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/ietf-rats-wg/architecture/issues/22",
     "repository_url": "https://api.github.com/repos/ietf-rats-wg/architecture",
