@@ -81,31 +81,31 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
    2.  Terminology . . . . . . . . . . . . . . . . . . . . . . . . .   3
-   3.  Reference Use Cases . . . . . . . . . . . . . . . . . . . . .   4
-     3.1.  Network Endpoint Assessment . . . . . . . . . . . . . . .   4
+   3.  Reference Use Cases . . . . . . . . . . . . . . . . . . . . .   5
+     3.1.  Network Endpoint Assessment . . . . . . . . . . . . . . .   5
      3.2.  Confidential Machine Learning (ML) Model Protection . . .   5
-     3.3.  Confidential Data Retrieval . . . . . . . . . . . . . . .   5
-     3.4.  Critical Infrastructure Control . . . . . . . . . . . . .   5
-     3.5.  Trusted Execution Environment (TEE) Provisioning  . . . .   6
-     3.6.  Hardware Watchdog . . . . . . . . . . . . . . . . . . . .   6
-   4.  Architectural Overview  . . . . . . . . . . . . . . . . . . .   6
-     4.1.  Two Types of Environments of an Attester  . . . . . . . .   8
-     4.2.  Layered Attestation Procedures  . . . . . . . . . . . . .   8
-     4.3.  Composite Attester  . . . . . . . . . . . . . . . . . . .  11
-   5.  Topological Models  . . . . . . . . . . . . . . . . . . . . .  13
-     5.1.  Passport Model  . . . . . . . . . . . . . . . . . . . . .  13
-     5.2.  Background-Check Model  . . . . . . . . . . . . . . . . .  14
-     5.3.  Combinations  . . . . . . . . . . . . . . . . . . . . . .  15
-   6.  Trust Model . . . . . . . . . . . . . . . . . . . . . . . . .  16
-   7.  Conceptual Messages . . . . . . . . . . . . . . . . . . . . .  17
-     7.1.  Evidence  . . . . . . . . . . . . . . . . . . . . . . . .  17
-     7.2.  Endorsements  . . . . . . . . . . . . . . . . . . . . . .  18
-     7.3.  Attestation Results . . . . . . . . . . . . . . . . . . .  18
-   8.  Claims Encoding Formats . . . . . . . . . . . . . . . . . . .  19
-   9.  Freshness . . . . . . . . . . . . . . . . . . . . . . . . . .  21
-   10. Privacy Considerations  . . . . . . . . . . . . . . . . . . .  21
-   11. Security Considerations . . . . . . . . . . . . . . . . . . .  22
-   12. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  22
+     3.3.  Confidential Data Retrieval . . . . . . . . . . . . . . .   6
+     3.4.  Critical Infrastructure Control . . . . . . . . . . . . .   6
+     3.5.  Trusted Execution Environment (TEE) Provisioning  . . . .   7
+     3.6.  Hardware Watchdog . . . . . . . . . . . . . . . . . . . .   7
+   4.  Architectural Overview  . . . . . . . . . . . . . . . . . . .   7
+     4.1.  Two Types of Environments of an Attester  . . . . . . . .   9
+     4.2.  Layered Attestation Procedures  . . . . . . . . . . . . .   9
+     4.3.  Composite Attester  . . . . . . . . . . . . . . . . . . .  12
+   5.  Topological Models  . . . . . . . . . . . . . . . . . . . . .  14
+     5.1.  Passport Model  . . . . . . . . . . . . . . . . . . . . .  14
+     5.2.  Background-Check Model  . . . . . . . . . . . . . . . . .  15
+     5.3.  Combinations  . . . . . . . . . . . . . . . . . . . . . .  16
+   6.  Trust Model . . . . . . . . . . . . . . . . . . . . . . . . .  17
+   7.  Conceptual Messages . . . . . . . . . . . . . . . . . . . . .  18
+     7.1.  Evidence  . . . . . . . . . . . . . . . . . . . . . . . .  18
+     7.2.  Endorsements  . . . . . . . . . . . . . . . . . . . . . .  19
+     7.3.  Attestation Results . . . . . . . . . . . . . . . . . . .  19
+   8.  Claims Encoding Formats . . . . . . . . . . . . . . . . . . .  20
+   9.  Freshness . . . . . . . . . . . . . . . . . . . . . . . . . .  22
+   10. Privacy Considerations  . . . . . . . . . . . . . . . . . . .  22
+   11. Security Considerations . . . . . . . . . . . . . . . . . . .  23
+   12. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  23
 
 
 
@@ -114,52 +114,52 @@ Birkholz, et al.        Expires 5 September 2020                [Page 2]
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
-   13. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  22
-   14. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  22
-   15. Informative References  . . . . . . . . . . . . . . . . . . .  22
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  23
+   13. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  23
+   14. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  23
+   15. References  . . . . . . . . . . . . . . . . . . . . . . . . .  23
+     15.1.  Normative References . . . . . . . . . . . . . . . . . .  24
+     15.2.  Informative References . . . . . . . . . . . . . . . . .  24
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  24
 
 1.  Introduction
 
+   <Henk added text based on charter content>
    <more text to be added here>
 
-   Remote Attestation, as used in this document, is a process by which
-   one entity (the "Attester") provides evidence about its identity and
-   state to another remote entity (the "Relying Party"), which then
-   assesses the Attester's trustworthiness for the Relying Party's own
-   purposes.
+   In Remote Attestation Procedures (RATS) one peer (the "Attester")
+   produces believable information about itself - Evidence - to enable a
+   remote peer (the "Relying Party") to decide whether to consider that
+   Attester a trustworthy peer or not.  RATS are facilitated by an
+   additional vital party, the Verifier.  The Verifier appraises
+   Evidence via Appraisal Policies and creates the Attestation Results
+   to support Relying Parties in their decision process.
+
+   This documents defines a flexible architecture with corresponding
+   roles and their interaction via conceptual messages.  Additionally
+   this document defines a universal set of terms that can be mapped to
+   various existing and emerging Remote Attestation Procedures.  Common
+   role compositions and data flow, such as the "Passport Model" and the
+   "Background-Check Model" are illustrated to enable readers of this
+   document to map their current and emerging solution to the
+   architecture provided and the corresponding terminology defined.
+
+   A common terminology that provides a well-understood semantic meaning
+   to the concepts, roles, and models in this document is vital to
+   create semantic interoperability between solutions and across
+   different platforms.
+
+   Amongst other things, this document is about trust and
+   trustworthiness.  Trust is a decision being made.  Trustworthiness is
+   a quality that is assessed via evidence created.  This is a subtle
+   difference and being familiar with the difference is crucial for
+   using this document.  Additionally, the concepts of freshness and
+   trust relationship with respect to RATS are elaborated on to enable
+   implementers to choose appropriate solutions to compose their Remote
+   Attestation Procedures.
 
 2.  Terminology
 
-   This document uses the following terms:
-
-   *  Appraisal Policy for Evidence: A set of rules that direct how a
-      Verifier evaluates the validity of information about an Attester.
-      Compare /security policy/ in [RFC4949].
-
-   *  Appraisal Policy for Attestation Result: A set of rules that
-      direct how a Relying Party uses the evaluation results about an
-      Attester generated by the Verifiers.  Compare /security policy/ in
-      [RFC4949].
-
-   *  Attestation Result: The evaluation results generated by a
-      Verifier, typically including information about an Attester, where
-      the Verifier vouches for the validity of the results.
-
-   *  Attester: An entity whose attributes must be evaluated in order to
-      determine whether the entity is considered trustworthy, such as
-      when deciding whether the entity is authorized to perform some
-      operation.
-
-   *  Endorsement: A secure statement that some entity (typically a
-      manufacturer) vouches for the integrity of an Attester's signing
-      capability.
-
-   *  Endorser: An entity that creates Endorsements that can be used to
-      help evaluate trustworthiness of Attesters.
-
-   *  Evidence: A set of information about an Attester that is to be
-      evaluated by a Verifier.
+   This document uses the following terms.
 
 
 
@@ -170,29 +170,70 @@ Birkholz, et al.        Expires 5 September 2020                [Page 3]
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
-   *  Relying Party: An entity that depends on the validity of
-      information about another entity, typically for purposes of
-      authorization.  Compare /relying party/ in [RFC4949].
+   Appraisal Policy for Evidence:  A set of rules that direct how a
+      Verifier appraises the validity of information about an Attester.
+      Compare /security policy/ in [RFC4949]
 
-   *  Relying Party Owner: An entity, such as an administrator, that is
+   Appraisal Policy for Attestation Result:  A set of rules that direct
+      how a Relying Party uses the Attestation Results regarding an
+      Attester generated by the Verifiers.  Compare /security policy/ in
+      [RFC4949]
+
+   Attestation Result:  The output generated by a Verifier, typically
+      including information about an Attester, where the Verifier
+      vouches for the validity of the results
+
+   Attester:  An entity whose attributes must be appraised in order to
+      determine whether the entity is considered trustworthy, such as
+      when deciding whether the entity is authorized to perform some
+      operation
+
+   Endorsement:  A secure statement that some entity (typically a
+      manufacturer) vouches for the integrity of an Attester's signing
+      capability
+
+   Endorser:  An entity that creates Endorsements that can be used to
+      help to appraise the trustworthiness of Attesters
+
+   Evidence:  A set of information about an Attester that is to be
+      appraised by a Verifier
+
+   Relying Party:  An entity that depends on the validity of information
+      about another entity, typically for purposes of authorization.
+      Compare /relying party/ in[RFC4949]
+
+   Relying Party Owner:  An entity, such as an administrator, that is
       authorized to configure Appraisal Policy for Attestation Results
       in a Relying Party.
 
-   *  Verifier: An entity that evaluates the validity of Evidence about
-      an Attester.
+   Verifier:  An entity that appraises the validity of Evidence about an
+      Attester
 
-   *  Verifier Owner: An entity, such as an administrator, that is
+   Verifier Owner:  An entity, such as an administrator, that is
       authorized to configure Appraisal Policy for Evidence in a
-      Verifier.
+      Verifier
+
+
+
+
+
+
+
+
+
+Birkholz, et al.        Expires 5 September 2020                [Page 4]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
 
 3.  Reference Use Cases
 
-   This section covers a number of representative use cases for
-   attestation, independent of solution.  The purpose is to provide
-   motivation for various aspects of the architecture presented in this
-   draft.  Many other use cases exist, and this document does not intend
-   to have a complete list, only to have a set of use cases that
-   collectively cover all the functionality required in the
+   This section covers a number of representative use cases for remote
+   attestation, independent of specific solutions.  The purpose is to
+   provide motivation for various aspects of the architecture presented
+   in this draft.  Many other use cases exist, and this document does
+   not intend to have a complete list, only to have a set of use cases
+   that collectively cover all the functionality required in the
    architecture.
 
    Each use case includes a description, and a summary of what an
@@ -206,28 +247,22 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    logging.  The network operator may also want a policy by which full
    access is only granted to devices that meet some definition of
    health, and so wants to get claims about such information and verify
-   their validity.  Attestation is desired to prevent vulnerable or
-   compromised devices from getting access to the network and
+   their validity.  Remote attestation is desired to prevent vulnerable
+   or compromised devices from getting access to the network and
    potentially harming others.
 
-   Typically, solutions start with some component (called a "Root of
-   Trust") that provides device identity and protected storage for
-   measurements.  They then perform a series of measurements, and
-   express this with Evidence as to the hardware and firmware/software
-   that is running.
+   Typically, solutions start with a specific component (called a "Root
+   of Trust") that provides device identity and protected storage for
+   measurements.  These components perform a series of initial
+   measurements, and express this with Evidence as to the hardware and
+   firmware/software that is running.  [FIXME from Henk: Measurements at
+   early stages of Layered Attestation are NOT evidence yet.  This text
+   does not cover that yet]
 
-   *  Attester: A device desiring access to a network
+   Attester:  A device desiring access to a network
 
-
-
-
-Birkholz, et al.        Expires 5 September 2020                [Page 4]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
-
-
-   *  Relying Party: A network infrastructure device such as a router,
-      switch, or access point.
+   Relying Party:  A network infrastructure device such as a router,
+      switch, or access point
 
 3.2.  Confidential Machine Learning (ML) Model Protection
 
@@ -238,14 +273,22 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    details of the model.
 
    This typically works by having some protected environment in the
-   device attest to some manufacturer service.  If attestation succeeds,
-   then the manufacturer service releases either the model, or a key to
-   decrypt a model the Attester already has in encrypted form, to the
-   requester.
+   device attest to some manufacturer service.  If remote attestation
 
-   *  Attester: A device desiring to run an ML model to do inferencing
 
-   *  Relying Party: A server or service holding ML models it desires to
+
+Birkholz, et al.        Expires 5 September 2020                [Page 5]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
+   succeeds, then the manufacturer service releases either the model, or
+   a key to decrypt a model the Attester already has in encrypted form,
+   to the requester.
+
+   Attester:  A device desiring to run an ML model to do inferencing
+
+   Relying Party:  A server or service holding ML models it desires to
       protect
 
 3.3.  Confidential Data Retrieval
@@ -256,10 +299,10 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    Attestation is desired to prevent leaking data to compromised
    devices.
 
-   *  Attester: An entity desiring to retrieve confidential data
+   Attester:  An entity desiring to retrieve confidential data
 
-   *  Relying Party: An entity that holds confidential data for
-      retrieval by other entities
+   Relying Party:  An entity that holds confidential data for retrieval
+      by other entities
 
 3.4.  Critical Infrastructure Control
 
@@ -271,39 +314,45 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    other adversaries.  When a protocol operation can affect some
    critical system, the device attached to the critical equipment thus
    wants some assurance that the requester has not been compromised.  As
-   such, attestation can be used to only accept commands from requesters
-   that are within policy.
+   such, remote attestation can be used to only accept commands from
+   requesters that are within policy.
+
+   Attester:  A device or application wishing to control physical
+      equipment
+
+   Relying Party:  A device or application connected to potentially
+      dangerous physical equipment (hazardous chemical processing,
+      traffic control, power grid, etc.)
 
 
 
 
-Birkholz, et al.        Expires 5 September 2020                [Page 5]
+
+
+
+
+
+
+Birkholz, et al.        Expires 5 September 2020                [Page 6]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
-
-   *  Attester: A device or application wishing to control physical
-      equipment.
-
-   *  Relying Party: A device or application connected to potentially
-      dangerous physical equipment (hazardous chemical processing,
-      traffic control, power grid, etc.)
 
 3.5.  Trusted Execution Environment (TEE) Provisioning
 
    A "Trusted Application Manager (TAM)" server is responsible for
    managing the applications running in the TEE of a client device.  To
-   do this, the TAM wants to verify the state of a TEE, or of
+   do this, the TAM wants to assess the state of a TEE, or of
    applications in the TEE, of a client device.  The TEE attests to the
    TAM, which can then decide whether the TEE is already in compliance
    with the TAM's latest policy, or if the TAM needs to uninstall,
    update, or install approved applications in the TEE to bring it back
    into compliance with the TAM's policy.
 
-   *  Attester: A device with a trusted execution environment capable of
-      running trusted applications that can be updated.
+   Attester:  A device with a trusted execution environment capable of
+      running trusted applications that can be updated
 
-   *  Relying Party: A Trusted Application Manager.
+   Relying Party:  A Trusted Application Manager
 
 3.6.  Hardware Watchdog
 
@@ -313,16 +362,16 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    held hostage for ransom.
 
    A hardware watchdog can be implemented by forcing a reboot unless
-   attestation to a remote server succeeds within a periodic interval,
+   remote attestation to a server succeeds within a periodic interval,
    and having the reboot do remediation by bringing a device into
    compliance, including installation of patches as needed.
 
-   *  Attester: The device that is desired to keep from being held
-      hostage for a long period of time.
+   Attester:  The device that is desired to keep from being held hostage
+      for a long period of time
 
-   *  Relying Party: A remote server that will securely grant the
-      Attester permission to continue operating (i.e., not reboot) for a
-      period of time.
+   Relying Party:  A remote server that will securely grant the Attester
+      permission to continue operating (i.e., not reboot) for a period
+      of time
 
 4.  Architectural Overview
 
@@ -333,7 +382,14 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 5 September 2020                [Page 6]
+
+
+
+
+
+
+
+Birkholz, et al.        Expires 5 September 2020                [Page 7]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -389,7 +445,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 5 September 2020                [Page 7]
+Birkholz, et al.        Expires 5 September 2020                [Page 8]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -445,7 +501,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 5 September 2020                [Page 8]
+Birkholz, et al.        Expires 5 September 2020                [Page 9]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -501,14 +557,14 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 5 September 2020                [Page 9]
+Birkholz, et al.        Expires 5 September 2020               [Page 10]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
    (U)EFI / BIOS / Firmware [FIXME] After the boot sequence started, the
    Target Environment conducts the most important and defining feature
-   of layered attestation: The successfully measured environment that is
+   of Layered Attestation: The successfully measured environment that is
    the (U)EFI / BIOS / Firmware now becomes the Attesting Environment.
    Analogously, the Attesting Environment hands off its duty to one of
    its Target Environments.  This procedure in Layered Attestation is
@@ -557,7 +613,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 5 September 2020               [Page 10]
+Birkholz, et al.        Expires 5 September 2020               [Page 11]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -565,16 +621,16 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 4.3.  Composite Attester
 
    A Composite Attester is an entity composed of multiple sub-entities
-   such that its trustworthiness has to be determined by evaluating all
-   these sub-entities.  Each sub-entity has at least one Attesting
-   Environment collecting the claims from at least one Target
+   such that its trustworthiness has to be determined by the appraisal
+   of all these sub-entities.  Each sub-entity has at least one
+   Attesting Environment collecting the claims from at least one Target
    Environment, then this sub-entity generates Evidence about its
    trustworthiness.  Therefore each sub-entity can be called an
    Attester.  Among these Attesters, there may be only some, which can
    be called Lead Attesters, that have the ability to communicate with
    the Verifier.  Other Attesters don't have this ability, but they are
    connected to the Lead Attesters via internal links or network
-   connections, and they are evaluated via the Lead Attester's help.
+   connections, and they are appraised by the Lead Attester's.
 
    For example, a carrier-grade router is a composite device consisting
    of a chassis and multiple slots.  The trustworthiness of the router
@@ -595,7 +651,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    treated as one router for simpler management.  Among these routers,
    there is only one main router that connects to the Verifier.  Other
    routers are only connected to the main router by the network cables,
-   and therefore they are managed and verified via this main router.
+   and therefore they are managed and appraised via this main router.
    So, in this case, the multi-chassis router is the Composite Attester,
    each router is an Attester and the main router is the Lead Attester.
 
@@ -613,7 +669,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 5 September 2020               [Page 11]
+Birkholz, et al.        Expires 5 September 2020               [Page 12]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -655,32 +711,31 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    Attester.
 
    The Lead Attester's Attesting Environment may or may not include its
-   own Verifier.  One situation is that the Attesting Environment has no
-   local Verifier.  In this situation, the Lead Attesting Environment
-   simply combines the various Evidences into the final Evidence that is
-   sent off to the remote Verifier, which evaluates the trustworthiness
-   of the Composite Device, including the Lead Attester's and other
-   Attesters', trustworthiness.
+   own Verifier.  The first variant is that the Attesting Environment
+   has no local Verifier.  In this variant, the Lead Attesting
+   Environment simply combines the various Evidences into the final
+   Evidence that is sent off to the remote Verifier, which appraises the
+   trustworthiness of the Composite Device, including the Lead
+   Attester's and other Attesters' trustworthiness.
 
-   The other situation is that the Lead Attesting Environment has an
-   local Verifier.  After collecting the Evidence of other Attesters,
-   this Attesting Environment verifies them using Endorsements and
-   Appraisal Policies (obtained the same way as any other Verifier), for
+   The second variant is that the Lead Attesting Environment has a local
+   Verifier.  After collecting the Evidence of other Attesters, this
+   Attesting Environment appraises them using Endorsements and Appraisal
+   Policies (obtained the same way as any other Verifier).  The Lead
 
 
 
-Birkholz, et al.        Expires 5 September 2020               [Page 12]
+Birkholz, et al.        Expires 5 September 2020               [Page 13]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
-   evaluating these Attesters' trustworthiness.  Then the Lead Attesting
-   Environment combines the Attestation Results into the final Evidence
-   of the whole Composite Attester which is sent off to the remote
-   Verifier, which might treat the claims obtained from the local
+   Attesting Environment combines the Attestation Results into the final
+   Evidence of the whole Composite Attester which is sent off to the
+   remote Verifier, which may treat the Claims obtained from the local
    Attestation Results as if they were Evidence.  In this situation, the
    trust model described in Section 6 is also suitable for the local
-   verifier.
+   Verifier.
 
 5.  Topological Models
 
@@ -704,13 +759,13 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    in which the process may fail is when the resulting Result is
    examined by the Relying Party, and based upon the Appraisal Policy,
    the result does not pass the policy.  The third way is when the
-   verifier is unreachable.
+   Verifier is unreachable.
 
    Since the resource access protocol between the Attester and Relying
    Party includes an Attestation Result, in this model the details of
    that protocol constrain the serialization format of the Attestation
    Result.  The format of the Evidence on the other hand is only
-   constrained by the Attester-Verifier attestation protocol.
+   constrained by the Attester-Verifier remote attestation protocol.
 
 
 
@@ -725,7 +780,8 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 5 September 2020               [Page 13]
+
+Birkholz, et al.        Expires 5 September 2020               [Page 14]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -781,7 +837,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 5 September 2020               [Page 14]
+Birkholz, et al.        Expires 5 September 2020               [Page 15]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -830,20 +886,20 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    for a protocol between the two.
 
    It is also worth pointing out that the choice of model is generally
-   up to the Relying Party, and the same device may need to attest to
-   different Relying Parties for different use cases (e.g., a network
-   infrastructure device to gain access to the network, and then a
+   up to the Relying Party, and the same device may need to create
+   Evidence for different Relying Parties and different use cases (e.g.,
+   a network infrastructure device to gain access to the network, and
 
 
 
 
-Birkholz, et al.        Expires 5 September 2020               [Page 15]
+Birkholz, et al.        Expires 5 September 2020               [Page 16]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
-   server holding confidential data to get access to that data).  As
-   such, both models may simultaneously be in use by the same device.
+   then a server holding confidential data to get access to that data).
+   As such, both models may simultaneously be in use by the same device.
 
    Figure 6 shows another example of a combination where Relying Party 1
    uses the passport model, whereas Relying Party 2 uses an extension of
@@ -883,7 +939,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 6.  Trust Model
 
    The scope of this document is scenarios for which a Relying Party
-   trusts a Verifier that can evaluate the trustworthiness of
+   trusts a Verifier that can appraise the trustworthiness of
    information about an Attester.  Such trust might come by the Relying
    Party trusting the Verifier (or its public key) directly, or might
    come by trusting an entity (e.g., a Certificate Authority) that is in
@@ -893,13 +949,13 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 5 September 2020               [Page 16]
+Birkholz, et al.        Expires 5 September 2020               [Page 17]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
    Party might require that the Verifier itself provide information
-   about itself that the Relying Party can use to evaluate the
+   about itself that the Relying Party can use to assess the
    trustworthiness of the Verifier before accepting its Attestation
    Results.
 
@@ -907,18 +963,19 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    giving the Endorsement and Appraisal Policy to it.  Such trust can
    also be established directly or indirectly, implicitly or explicitly.
    One explicit way to establish such trust may be the Verifier first
-   acts as an Attester and attests to the Endorser and/or Verifier Owner
-   as the Relying Parties.  If it is accepted as trustworthy, then they
-   can provide Endorsements and Appraisal Policies that enable it to act
-   as a Verifier.
+   acts as an Attester and creates Evidence about itself to be consumed
+   by the Endorser and/or Verifier Owner as the Relying Parties.  [FIXME
+   from Henk: this still does not really makes sense] If it is accepted
+   as trustworthy, then they can provide Endorsements and Appraisal
+   Policies that enable it to act as a Verifier.
 
    The Verifier trusts (or more specifically, the Verifier's security
    policy is written in a way that configures the Verifier to trust) a
    manufacturer, or the manufacturer's hardware, so as to be able to
-   evaluate the trustworthiness of that manufacturer's devices.  In
+   appraise the trustworthiness of that manufacturer's devices.  In
    solutions with weaker security, a Verifier might be configured to
    implicitly trust firmware or even software (e.g., a hypervisor).
-   That is, it might evaluate the trustworthiness of an application
+   That is, it might appraise the trustworthiness of an application
    component, or operating system component or service, under the
    assumption that information provided about it by the lower-layer
    hypervisor or firmware is true.  A stronger level of security comes
@@ -945,15 +1002,15 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    model of the device including its security properties, the health of
    the device, and the level of confidence in the correctness of the
    information.  Evidence is typically signed by the device (whether by
-   hardware, firmware, or software on the device), and evaluating it in
 
 
 
-Birkholz, et al.        Expires 5 September 2020               [Page 17]
+Birkholz, et al.        Expires 5 September 2020               [Page 18]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
+   hardware, firmware, or software on the device), and its appraisal in
    isolation would require Appraisal Policy to be based on device-
    specific details (e.g., a device public key).
 
@@ -965,20 +1022,20 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    then an Endorsement might be a manufacturer certificate that signs a
    public key whose corresponding private key is only known inside the
    device's hardware.  Thus, when Evidence and such an Endorsement are
-   used together, evaluating them can be done against Appraisal Policy
-   that may not be specific to the device instance, but merely specific
-   to the manufacturer providing the Endorsement.  For example, an
-   Appraisal Policy might simply check that devices from a given
-   manufacturer have information matching a set of known-good reference
-   values, or an Appraisal Policy might have a set of more complex logic
-   on how to evaluate the validity of information.
+   used together, an appraisal procedure can be conducted based on
+   Appraisal Policies that may not be specific to the device instance,
+   but merely specific to the manufacturer providing the Endorsement.
+   For example, an Appraisal Policy might simply check that devices from
+   a given manufacturer have information matching a set of known-good
+   reference values, or an Appraisal Policy might have a set of more
+   complex logic on how to appraise the validity of information.
 
    However, while an Appraisal Policy that treats all devices from a
    given manufacturer the same may be appropriate for some use cases, it
    would be inappropriate to use such an Appraisal Policy as the sole
    means of authorization for use cases that wish to constrain _which_
    compliant devices are considered authorized for some purpose.  For
-   example, an enterprise using attestation for Network Endpoint
+   example, an enterprise using remote attestation for Network Endpoint
    Assessment may not wish to let every healthy laptop from the same
    manufacturer onto the network, but instead only want to let devices
    that it legally owns onto the network.  Thus, an Endorsement may be
@@ -1001,15 +1058,15 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    Relying Party to make authorization decisions based on the Relying
    Party's Appraisal Policy.  The simplest such policy might be to
    simply authorize any party supplying a compliant Attestation Result
-   signed by a trusted Verifier.  A more complex policy might also
 
 
 
-Birkholz, et al.        Expires 5 September 2020               [Page 18]
+Birkholz, et al.        Expires 5 September 2020               [Page 19]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
+   signed by a trusted Verifier.  A more complex policy might also
    entail comparing information provided in the result against known-
    good reference values, or applying more complex logic on such
    information.
@@ -1020,10 +1077,10 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    name and date of birth.  Unlike Evidence, which is often very device-
    and vendor-specific, Attestation Results can be vendor-neutral if the
    Verifier has a way to generate vendor-agnostic information based on
-   evaluating vendor-specific information in Evidence.  This allows a
-   Relying Party's Appraisal Policy to be simpler, potentially based on
-   standard ways of expressing the information, while still allowing
-   interoperability with heterogeneous devices.
+   the appraisal of vendor-specific information in Evidence.  This
+   allows a Relying Party's Appraisal Policy to be simpler, potentially
+   based on standard ways of expressing the information, while still
+   allowing interoperability with heterogeneous devices.
 
    Finally, whereas Evidence is signed by the device (or indirectly by a
    manufacturer, if Endorsements are used), Attestation Results are
@@ -1033,8 +1090,8 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 8.  Claims Encoding Formats
 
-   The following diagram illustrates a relationship to which attestation
-   is desired to be added:
+   The following diagram illustrates a relationship to which remote
+   attestation is desired to be added:
 
       +-------------+               +-------------+
       |             |-------------->|             |
@@ -1051,26 +1108,26 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    of authentication and authorization.  Common formats include JWTs
    [RFC7519], CWTs [RFC8392], and X.509 certificates.
 
-   To enable attestation to be added to existing protocols, enabling a
-   higher level of assurance against malware for example, it is
-   important that information needed for evaluating the Attester be
+   To enable remote attestation to be added to existing protocols,
+   enabling a higher level of assurance against malware for example, it
+   is important that information needed for appraising the Attester be
    usable with existing protocols that have constraints around what
    formats they can transport.  For example, OPC UA [OPCUA] (probably
    the most common protocol in industrial IoT environments) is defined
-   to carry X.509 certificates and so security information must be
 
 
 
-Birkholz, et al.        Expires 5 September 2020               [Page 19]
+Birkholz, et al.        Expires 5 September 2020               [Page 20]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
 
+   to carry X.509 certificates and so security information must be
    embedded into an X.509 certificate to be passed in the protocol.
-   Thus, attestation-related information could be natively encoded in
-   X.509 certificate extensions, or could be natively encoded in some
-   other format (e.g., a CWT) which in turn is then encoded in an X.509
-   certificate extension.
+   Thus, remote attestation related information could be natively
+   encoded in X.509 certificate extensions, or could be natively encoded
+   in some other format (e.g., a CWT) which in turn is then encoded in
+   an X.509 certificate extension.
 
    Especially for constrained nodes, however, there is a desire to
    minimize the amount of parsing code needed in a Relying Party, in
@@ -1081,9 +1138,9 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    Relying Party.
 
    This motivates having a common "information model" that describes the
-   set of attestation related information in an encoding-agnostic way,
-   and allowing multiple encoding formats (CWT, JWT, X.509, etc.) that
-   encode the same information into the claims format needed by the
+   set of remote attestation related information in an encoding-agnostic
+   way, and allowing multiple encoding formats (CWT, JWT, X.509, etc.)
+   that encode the same information into the claims format needed by the
    Relying Party.
 
    The following diagram illustrates that Evidence and Attestation
@@ -1116,8 +1173,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-
-Birkholz, et al.        Expires 5 September 2020               [Page 20]
+Birkholz, et al.        Expires 5 September 2020               [Page 21]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -1173,7 +1229,7 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-Birkholz, et al.        Expires 5 September 2020               [Page 21]
+Birkholz, et al.        Expires 5 September 2020               [Page 22]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
@@ -1194,16 +1250,16 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    use cases.  Section 9 discusses ways in which freshness can be used
    in this architecture to protect against replay attacks.
 
-   To evaluate the security provided by a particular Appraisal Policy,
-   it is important to understand the strength of the Root of Trust,
-   e.g., whether it is mutable software, or firmware that is read-only
-   after boot, or immutable hardware/ROM.
+   To assess the security provided by a particular Appraisal Policy, it
+   is important to understand the strength of the Root of Trust, e.g.,
+   whether it is mutable software, or firmware that is read-only after
+   boot, or immutable hardware/ROM.
 
    It is also important that the Appraisal Policy was itself obtained
-   securely.  As such, if Appraisal Policy in a Relying Party or
-   Verifier can be configured via a network protocol, the ability to
-   attest to the health of the client providing the Appraisal Policy
-   needs to be considered.
+   securely.  As such, if Appraisal Policies for a Relying Party or for
+   a Verifier can be configured via a network protocol, the ability to
+   create Evidence about the integrity of the entity providing the
+   Appraisal Policy needs to be considered.
 
 12.  IANA Considerations
 
@@ -1225,14 +1281,26 @@ Internet-Draft              RATS Arch & Terms                 March 2020
    the motivational building blocks with respect to the Internet Threat
    Model.
 
-15.  Informative References
+15.  References
 
 
 
-Birkholz, et al.        Expires 5 September 2020               [Page 22]
+Birkholz, et al.        Expires 5 September 2020               [Page 23]
 
 Internet-Draft              RATS Arch & Terms                 March 2020
 
+
+15.1.  Normative References
+
+   [RFC7519]  Jones, M., Bradley, J., and N. Sakimura, "JSON Web Token
+              (JWT)", RFC 7519, DOI 10.17487/RFC7519, May 2015,
+              <https://www.rfc-editor.org/info/rfc7519>.
+
+   [RFC8392]  Jones, M., Wahlstroem, E., Erdtman, S., and H. Tschofenig,
+              "CBOR Web Token (CWT)", RFC 8392, DOI 10.17487/RFC8392,
+              May 2018, <https://www.rfc-editor.org/info/rfc8392>.
+
+15.2.  Informative References
 
    [I-D.birkholz-rats-tuda]
               Fuchs, A., Birkholz, H., McDonald, I., and C. Bormann,
@@ -1255,13 +1323,9 @@ Internet-Draft              RATS Arch & Terms                 March 2020
               specifications-unified-architecture/part-2-security-
               model/>.
 
-   [RFC7519]  Jones, M., Bradley, J., and N. Sakimura, "JSON Web Token
-              (JWT)", RFC 7519, DOI 10.17487/RFC7519, May 2015,
-              <https://www.rfc-editor.org/info/rfc7519>.
-
-   [RFC8392]  Jones, M., Wahlstroem, E., Erdtman, S., and H. Tschofenig,
-              "CBOR Web Token (CWT)", RFC 8392, DOI 10.17487/RFC8392,
-              May 2018, <https://www.rfc-editor.org/info/rfc8392>.
+   [RFC4949]  Shirey, R., "Internet Security Glossary, Version 2",
+              FYI 36, RFC 4949, DOI 10.17487/RFC4949, August 2007,
+              <https://www.rfc-editor.org/info/rfc4949>.
 
 Authors' Addresses
 
@@ -1274,20 +1338,19 @@ Authors' Addresses
    Email: henk.birkholz@sit.fraunhofer.de
 
 
+
+
+
+Birkholz, et al.        Expires 5 September 2020               [Page 24]
+
+Internet-Draft              RATS Arch & Terms                 March 2020
+
+
    Dave Thaler
    Microsoft
    United States of America
 
    Email: dthaler@microsoft.com
-
-
-
-
-
-
-Birkholz, et al.        Expires 5 September 2020               [Page 23]
-
-Internet-Draft              RATS Arch & Terms                 March 2020
 
 
    Michael Richardson
@@ -1334,11 +1397,4 @@ Internet-Draft              RATS Arch & Terms                 March 2020
 
 
 
-
-
-
-
-
-
-
-Birkholz, et al.        Expires 5 September 2020               [Page 24]
+Birkholz, et al.        Expires 5 September 2020               [Page 25]
